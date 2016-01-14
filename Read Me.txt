@@ -1,0 +1,3 @@
+1. android app eka android folder ekata and web app eka web folder ekata
+2. special coding line eka comment karana 
+ 
