@@ -26,7 +26,7 @@
     left: 50%;
     width:30em;
     height:25em;
-    margin-top: -12em; /*set to a negative number 1/2 of your height*/
+    margin-top: -13em; /*set to a negative number 1/2 of your height*/
     margin-left: -15em; /*set to a negative number 1/2 of your width*/
     border: 50px ;
     position:fixed;
@@ -36,14 +36,16 @@
       
     body {
 
-      padding-top:10px;
+      padding-top:0px;
     }
 
     #slides {
       display: none
     }
 
-
+    #slides .slidesjs-navigation {
+      margin-top:3px;
+    }
 
     #slides .slidesjs-previous {
       margin-right: 5px;
@@ -159,7 +161,10 @@
       <img src="<?php echo URL; ?>public/slider/img/Train-2.jpg" >
       <img src="<?php echo URL; ?>public/slider/img/Train-3.jpg" >
       <img src="<?php echo URL; ?>public/slider/img/Train-4.jpg" >
-    
+    <img src="<?php echo URL; ?>public/slider/img/Train-5.jpg" >
+    <img src="<?php echo URL; ?>public/slider/img/Train-6.jpg" >
+        <img src="<?php echo URL; ?>public/slider/img/Train-7.jpg" >
+            <img src="<?php echo URL; ?>public/slider/img/Train-8.jpg" >
     </div>
   </div>
   
@@ -203,8 +208,8 @@
       $('#slides').slidesjs({
          
         width: 1250,
-        height: 600,
-        navigation: true,
+        height: 689,
+        navigation: false,
 		    play: {
      
         // [boolean] Generate the play and stop buttons.
