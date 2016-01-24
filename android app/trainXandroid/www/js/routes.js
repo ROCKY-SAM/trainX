@@ -69,7 +69,15 @@ angular.module('app.routes', [])
     })
         
       
-    
+        .state('tabsController.findMyTrain', {
+      url: '/page25',
+      views: {
+        'tab13': {
+          templateUrl: 'templates/findMyTrain.html',
+          controller: 'findMyTrainCtrl'
+        }
+      }
+    })
       
     .state('tabsController', {
       url: '/page20',

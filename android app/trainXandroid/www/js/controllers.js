@@ -19,4 +19,6 @@ angular.module('app.controllers', [])
 .controller('informationCtrl', function($scope) {
 
 })
-    
+.controller('findMyTrainCtrl', function($scope) {
+
+})  
