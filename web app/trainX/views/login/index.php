@@ -1,6 +1,4 @@
 <meta name="viewport" content="width=device-width">
-<link rel="stylesheet" href="<?php echo URL; ?>public/slider/css/example.css">
-<link rel="stylesheet" href="<?php echo URL; ?>public/slider/css/font-awesome.min.css">
 
 <!-- mdl-->
 <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
@@ -11,11 +9,10 @@
 <!-- mdl -->
 <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="<?php echo URL; ?>public/slider/js/jquery.slides.min.js"></script>
+
 
 <link href='https://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Rancho&effect=destruction">
-
 
 <style>
 
@@ -34,118 +31,7 @@
         z-index: 10;
 
     }
-
-
-
-    #slides {
-        display: none
-    }
-
-    #slides .slidesjs-navigation {
-        margin-top:3px;
-    }
-
-    #slides .slidesjs-previous {
-        margin-right: 5px;
-        float: left;
-    }
-
-    #slides .slidesjs-next {
-        margin-right: 5px;
-        float: left;
-    }
-
-    .slidesjs-pagination {
-        margin: 6px 0 0;
-        float: right;
-        list-style: none;
-    }
-
-    .slidesjs-pagination li {
-        float: left;
-        margin: 0 1px;
-    }
-
-    .slidesjs-pagination li a {
-        display: block;
-        width: 13px;
-        height: 0;
-        padding-top: -1px;
-        background-image: url(img/pagination.png);
-        background-position: 0 0;
-        float: left;
-        overflow: hidden;
-    }
-
-    .slidesjs-pagination li a.active,
-    .slidesjs-pagination li a:hover.active {
-        background-position: 0 -13px
-    }
-
-    .slidesjs-pagination li a:hover {
-        background-position: 0 -26px
-    }
-
-    #slides a:link,
-    #slides a:visited {
-        color: #333
-    }
-
-    #slides a:hover,
-    #slides a:active {
-        color: #9e2020
-    }
-
-    .navbar {
-        overflow: hidden
-    }
-</style>
-
-
-<style>
-    #slides {
-        display: none
-
-    }
-
-    .container {
-
-
-    }
-
-    /* For tablets & smart phones */
-    @media (max-width: 767px) {
-        body {
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-        .container {
-            width: auto
-        }
-    }
-
-    /* For smartphones */
-    @media (max-width: 480px) {
-        .container {
-            width: auto
-        }
-    }
-
-    /* For smaller displays like laptops */
-    @media (min-width: 768px) and (max-width: 979px) {
-        .container {
-            width: 724px
-        }
-    }
-
-    /* For larger displays */
-    @media (min-width: 1200px) {
-        .container {
-            width: 1200px
-        }
-    }
-
-
+   
     font { font-family: 'Luckiest Guy', cursive; font-weight: 350; }
     .inputtext{
         padding:5px;
@@ -155,25 +41,7 @@
 </style>
 
 </head>
-<body class="mdl-layout__content mdl-color--grey-300">
-
-
-
-
-    <div class="container" >
-        <div id="slides">
-
-            <img src="<?php echo URL; ?>public/slider/img/Train-1.jpg" >
-            <img src="<?php echo URL; ?>public/slider/img/Train-2.jpg" >
-            <img src="<?php echo URL; ?>public/slider/img/Train-3.jpg" >
-            <img src="<?php echo URL; ?>public/slider/img/Train-4.jpg" >
-            <img src="<?php echo URL; ?>public/slider/img/Train-5.jpg" >
-            <img src="<?php echo URL; ?>public/slider/img/Train-6.jpg" >
-            <img src="<?php echo URL; ?>public/slider/img/Train-7.jpg" >
-            <img src="<?php echo URL; ?>public/slider/img/Train-8.jpg" >
-        </div>
-    </div>
-
+<body class="mdl-layout__content mdl-color--grey-300" style="background-image: url(<?php echo URL; ?>public/images/1.jpg);height: screen.height; width: screen.width;background-repeat: no-repeat;">
 
 
     <div class="mydiv" align="center" >
@@ -206,42 +74,4 @@
 
 
 
-    <script>
-        $(function () {
-            $('#slides').slidesjs({
-                width: 1250,
-                height: 689,
-                navigation: false,
-                play: {
-                    // [boolean] Generate the play and stop buttons.
-                    // You cannot use your own buttons. Sorry.
-                    effect: "fade",
-                    // [string] Can be either "slide" or "fade".
-                    interval: 5000,
-                    // [number] Time spent on each slide in milliseconds.
-                    auto: true,
-                    // [boolean] Start playing the slideshow on load.
-                    // swap: false,
-                    // [boolean] show/hide stop and play buttons
-                    pauseOnHover: false,
-                    // [boolean] pause a playing slideshow on hover
-                    restartDelay: 50
-                            // [number] restart delay on inactive slideshow
-                },
-                effect: {
-                    slide: {
-                        // Slide effect settings.
-                        speed: 2000
-                                // [number] Speed in milliseconds of the slide animation.
-                    },
-                    fade: {
-                        speed: 500,
-                        // [number] Speed in milliseconds of the fade animation.
-                        crossfade: true
-                                // [boolean] Cross-fade the transition.
-                    }
-                }
 
-            });
-        });
-    </script>

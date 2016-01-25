@@ -11,7 +11,14 @@ class ProfileManage extends Controller {
 		$this->view->render('profileManage/index');
 	}
 	
-
+	function pages() 
+	{	
+		$this->view->render('profileManage/pages');
+	}
 	
+	function adminUsers() 
+	{	
+		$this->view->render('profileManage/adminUsers');
+	}
 
 }

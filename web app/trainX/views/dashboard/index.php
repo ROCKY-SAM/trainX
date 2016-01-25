@@ -2,14 +2,16 @@
 <html lang="en">
     <head>
 
-
+	
+	
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <!-- mdl-->
         <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
+        <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Rancho&effect=destruction">
 
 
         <meta charset="utf-8">
@@ -43,55 +45,74 @@
                     <?php if (Session::get('loggedIn') == true): ?>
 
                         <span class="mdl-layout-title">
-                            <a href="<?php echo URL; ?>dashboard">TrainXlife</a>
+                            <a href="<?php echo URL; ?>dashboard" class="font-effect-destruction"><font size="7">TrainXLife</font></a>
                         </span>
-
-
-                        <?php if (Session::get('role') == 'owner'): ?>
-                            <a href="<?php echo URL; ?>user">Users owner</a>
-                        <?php endif; ?>
-
-
 
 
 
 
                         <div class="mdl-layout-spacer"></div>
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-                            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-                                <i class="material-icons">search</i>
-                            </label>
-                            <div class="mdl-textfield__expandable-holder">
-                                <input class="mdl-textfield__input" type="text" id="search">
-                                <label class="mdl-textfield__label" for="search">Enter your query...</label>
-                            </div>
-                        </div>
-                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-                            <i class="material-icons">more_vert</i>
-                        </button>
-                        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-                            <li class="mdl-menu__item">About</li>
-                            <li class="mdl-menu__item">Contact</li>
-                            <li class="mdl-menu__item">Legal information</li>
-                        </ul>
+                        <script type="text/javascript">
+                            tday = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+                            tmonth = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+
+                            function GetClock() {
+                                var d = new Date();
+                                var nday = d.getDay(), nmonth = d.getMonth(), ndate = d.getDate(), nyear = d.getYear();
+                                if (nyear < 1000)
+                                    nyear += 1900;
+                                var nhour = d.getHours(), nmin = d.getMinutes(), nsec = d.getSeconds(), ap;
+
+                                if (nhour == 0) {
+                                    ap = " AM";
+                                    nhour = 12;
+                                } else if (nhour < 12) {
+                                    ap = " AM";
+                                } else if (nhour == 12) {
+                                    ap = " PM";
+                                } else if (nhour > 12) {
+                                    ap = " PM";
+                                    nhour -= 12;
+                                }
+
+                                if (nmin <= 9)
+                                    nmin = "0" + nmin;
+                                if (nsec <= 9)
+                                    nsec = "0" + nsec;
+
+                                document.getElementById('clockbox').innerHTML = "" + tday[nday] + ", " + tmonth[nmonth] + " " + ndate + ", " + nyear + " </br>&nbsp;&nbsp;" + nhour + ":" + nmin + ":" + nsec + ap + "";
+                            }
+
+                            window.onload = function () {
+                                GetClock();
+                                setInterval(GetClock, 1000);
+                            }
+                        </script>
+                        <div id="clockbox"></div>
+
                     </div>
                 </header>
                 <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
 
                     <header class="demo-drawer-header">
-                        
-                        
-                        <img src="images/user.jpg" class="demo-avatar">
+
+
+                        <p> <img src="images/user.jpg" class="demo-avatar"> 
+
+                            <?php if (Session::get('role') == 'owner'): ?>
+                                <a href="<?php echo URL; ?>user">Users owner</a>
+                            <?php endif; ?>
+                        </p>
+
                         <div class="demo-avatar-dropdown">
-                            <span>hello@example.com</span>
+                            <span>{{user name}}</span>
                             <div class="mdl-layout-spacer"></div>
                             <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                                 <i class="material-icons" role="presentation">arrow_drop_down</i>
                                 <span class="visuallyhidden">Accounts</span>
                             </button>
                             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-                                <li class="mdl-menu__item">hello@example.com</li>
-                                <li class="mdl-menu__item">info@example.com</li>
+                                <li class="mdl-menu__item">Profile Settings</li>
                                 <a href="<?php echo URL; ?>dashboard/logout"><li class="mdl-menu__item"><i class="material-icons">arrow_back</i>Logout<?php endif; ?></li></a>
                         </ul>
                     </div>
@@ -153,36 +174,36 @@
         <script type="text/javascript">
 
 
-            $('#profile').click(function (e2) {
-                e2.preventDefault();
-                $('#subloader2').empty();
-                $('#subloader2').load('profileManage/index', function () {
-                });
-            });
-            $('#location').click(function (e2) {
-                e2.preventDefault();
-                $('#subloader2').empty();
-                $('#subloader2').load('locationIdentify/index', function () {
-                });
-            });
-            $('#travel').click(function (e2) {
-                e2.preventDefault();
-                $('#subloader2').empty();
-                $('#subloader2').load('travelGuide/index', function () {
-                });
-            });
-            $('#reservation').click(function (e2) {
-                e2.preventDefault();
-                $('#subloader2').empty();
-                $('#subloader2').load('reservation/index', function () {
-                });
-            });
-            $('#payment').click(function (e2) {
-                e2.preventDefault();
-                $('#subloader2').empty();
-                $('#subloader2').load('paymentHandel/index', function () {
-                });
-            });
+    $('#profile').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('profileManage/index', function () {
+        });
+    });
+    $('#location').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('locationIdentify/index', function () {
+        });
+    });
+    $('#travel').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('travelGuide/index', function () {
+        });
+    });
+    $('#reservation').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('reservation/index', function () {
+        });
+    });
+    $('#payment').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('paymentHandel/index', function () {
+        });
+    });
         </script>
     </body>
 </html>
