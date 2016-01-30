@@ -4,9 +4,7 @@
 
 	
 	
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-        <!-- Bootstrap -->
+     <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <!-- mdl-->
         <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.indigo-pink.min.css">
@@ -25,6 +23,13 @@
         <link rel="stylesheet" href="<?php echo URL; ?>public/material.min.css">
         <link rel="stylesheet" href="<?php echo URL; ?>public/styles.css">
 
+		
+		
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  
     </head>
 
     <body>
@@ -35,7 +40,7 @@
 
 
         <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-            <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+            <header class="demo-header mdl-layout__header mdl-color--green-400 mdl-color-text--black-600">
                 <div class="mdl-layout__header-row">
 
 
@@ -92,20 +97,18 @@
 
                     </div>
                 </header>
-                <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+                <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-800 mdl-color-text--blue-grey-50">
 
                     <header class="demo-drawer-header">
 
 
                         <p> <img src="images/user.jpg" class="demo-avatar"> 
 
-                            <?php if (Session::get('role') == 'owner'): ?>
-                                <a href="<?php echo URL; ?>user">Users owner</a>
-                            <?php endif; ?>
+
                         </p>
 
                         <div class="demo-avatar-dropdown">
-                            <span>{{user name}}</span>
+                            <span id="usertype"></span>
                             <div class="mdl-layout-spacer"></div>
                             <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
                                 <i class="material-icons" role="presentation">arrow_drop_down</i>
@@ -118,22 +121,27 @@
                     </div>
                 </header>
 
-                <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-                    <a class="mdl-navigation__link" href="javascript:void(0)" id="profile"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">account_box</i>Profile Management</a>
-                    <a class="mdl-navigation__link" href="javascript:void(0)" id="location"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">add_location</i>Location Idintification</a>
-                    <a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">directions</i>Travel Guide</a>
-                    <a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">receipt</i>Reservation</a>
-                    <a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">payment</i>Payment Handling</a>
-
+                <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-600">
+          
+                    <div id="loadOnlyPart" ></div>
+         
+ 
+ 
+ 
+ 
 
                     <div class="mdl-layout-spacer"></div>
                 </nav>
             </div>
 
 
-            <main class="mdl-layout__content mdl-color--grey-500">
+            <main class="mdl-layout__content mdl-color--grey-000" >
 
-                <div class="mdl-grid demo-content" id="subloader2">
+                <div class="mdl-grid demo-content" id="subloader2" >
+
+				
+				
+		
 
 
 
@@ -171,6 +179,17 @@
         </style>
 
 
+		
+
+
+
+		
+		
+		
+		
+		
+		
+		
         <script type="text/javascript">
 
 
@@ -204,6 +223,79 @@
         $('#subloader2').load('paymentHandel/index', function () {
         });
     });
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	 $(document).ready(function () { 
+var test = '<?php echo Session::get('role'); ?>';
+if(test == "admin"){
+	
+$('#usertype').append('Admin');
+ $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="profile"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">account_box</i>Profile Management</a>');
+ $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="location"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Location Idintification</a>');                        
+ $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Travel Guide</a>');
+ $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Reservation</a>');
+ $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
+             	  }
+
+
+
+else if(test == "profileManage"){
+$('#usertype').append('Profile Manager');
+   
+}
+else if(test == "locationfind"){
+$('#usertype').append('Location Idintification');
+   
+}
+else if(test == "travelGudie"){
+$('#usertype').append('Travel Guide');
+   
+}
+else if(test == "reservation"){
+$('#usertype').append('Reservation');
+   
+}
+else if(test == "payment"){
+$('#usertype').append('Payment Handling');
+   
+}
+                        
+	 
+
+	 });
+
         </script>
     </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

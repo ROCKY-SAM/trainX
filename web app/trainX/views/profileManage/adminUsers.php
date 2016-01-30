@@ -1,17 +1,11 @@
+<div class="row">
 
-
-  <div class="row">
-  
-  
-      <div class="col-sm-8 col-sm-pull-4" style="background-color:lavenderblush;">.col-sm-8 
-              dfsdssssssssssssssssssssssss</div>
-	
-	
-	
-    <div class="col-sm-4 col-sm-push-8" style="background-color:lavender;">.col-sm-4 
-	asdasdasdaasdasdasdaasdasdasdaasdasdasdaasdasdasdaasdasdasdaasdasdasdaasdasdasdaasdasdasda
-	
-	.col-sm-push-8</div>
-	
-
+  <div class="col-md-3" style=" background-color: lightblue;">.col-md-4
+  .col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8
   </div>
+
+  <div class="col-md-9">.col-md-8
+  .col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8.col-md-8
+  </div>
+
+</div>
