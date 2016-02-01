@@ -1,10 +1,13 @@
 	    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 	      <div class="mdl-tabs__tab-bar">
-	          <a href="javascript:void(0)" id="message" class="mdl-tabs__tab">Messages</a>
-	          <a href="javascript:void(0)" id="adminuser" class="mdl-tabs__tab">Admin Users</a>
-	          <a href="javascript:void(0)" id="customer" class="mdl-tabs__tab">CustomerS</a>
+	          <a href="javascript:void(0)" id="message" class="btn btn-raised btn-default">Messages</a>
+	          <a href="javascript:void(0)" id="adminuser" class="btn btn-raised btn-default">Admin Users</a>
+	          <a href="javascript:void(0)" id="customer" class="btn btn-raised btn-default">CustomerS</a>
 	      </div>
 	    </div>
+		
+   
+
 		
 		<button class="edit">sam</button>
 
