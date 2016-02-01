@@ -19,4 +19,15 @@ angular.module('app.controllers', [])
 .controller('informationCtrl', function($scope) {
 
 })
-    
+.controller('findMyTrainCtrl', function($scope) {
+
+}) 
+
+.controller('seatReservations', function($scope) {
+
+})
+
+
+.controller('reservationDetails', function($scope) {
+
+})
