@@ -21,4 +21,13 @@ angular.module('app.controllers', [])
 })
 .controller('findMyTrainCtrl', function($scope) {
 
-})  
+}) 
+
+.controller('seatReservations', function($scope) {
+
+})
+
+
+.controller('reservationDetails', function($scope) {
+
+})
