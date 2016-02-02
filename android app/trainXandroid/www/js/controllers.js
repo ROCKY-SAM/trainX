@@ -31,3 +31,12 @@ angular.module('app.controllers', [])
 .controller('reservationDetails', function($scope) {
 
 })
+
+
+.controller('paymentMethod', function($scope) {
+
+})
+
+.controller('paymentSuccess', function($scope) {
+
+})
