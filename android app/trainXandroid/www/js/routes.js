@@ -106,6 +106,29 @@ angular.module('app.routes', [])
                             }
                         }
                     })
+                    
+                    
+                     .state('tabsController.paymentMethod', {
+                        url: '/page58',
+                        views: {
+                            'tab13': {
+                                templateUrl: 'templates/paymentMethod.html',
+                                controller: 'paymentMethod'
+                            }
+                        }
+                    })
+                    
+                    
+                     .state('tabsController.paymentSuccess', {
+                        url: '/page60',
+                        views: {
+                            'tab13': {
+                                templateUrl: 'templates/paymentSuccess.html',
+                                controller: 'paymentSuccess'
+                            }
+                        }
+                    })
+                    
 
 
             // if none of the above states are matched, use this as the fallback
