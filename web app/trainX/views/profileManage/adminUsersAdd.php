@@ -1,296 +1,249 @@
 			</br></br>
 			
-			<form class="form-horizontal">
-    <fieldset>
-        <legend>Search Employee</legend>
-        <div class="form-group">
-            <div class="col-lg-5">
-                <input type="text" class="form-control" id="searchInput" placeholder="filter">
-            </div>
-        </div>
-    </fieldset>
-</form>
-
-</br>
-			
-		<table class="table table-striped table-hover ">
-        <col style="width:10%">		
-        <col style="width:15%">
-        <col style="width:15%">
-        <col style="width:20%">
-        <col style="width:20%">
-        <col style="width:5%">
-        <col style="width:10%">
-        <col style="width:10%">		
-        <thead>
-            <tr>
-                <th></th>			
-                <th>Employee ID</th>
-                <th>Employee Role</th>
-                <th>Employee Full Name</th>
-                <th>Employee Email</th>
-				<th></th>
-				<th >Edit Employee</th>
-				<th>Delete Employee</th>
-            </tr>
-
-        </thead>
-        <tbody id="dbody"></tbody>
-    </table>
-		
-		
-
-		
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel"><legend>Edit Employee</legend></h4>
-
-            </div>
-   <form class="form-horizontal" id="updateAdmin_form" action="profileManage/updateEmployees" method="post" ">
-            <div class="modal-body">
-             
-                    <fieldset>
 
 
+    <!--start of filling application -->
+    <div class="col-lg-14">
+        <form class="form-horizontal" method="POST" action="profileManage/insertEmployees" enctype="multipart/form-data" id="insertEmployees" onsubmit="return submitForm();">
+            <fieldset>
+                <legend>New Employee Details</legend> <!--font style-->
 
+                <div class="form-group">
+                    <label for="managercode" class="col-lg-2 control-label">Employee Code</label>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="managercode" id="autocode" placeholder="Department Id" required>
+                    </div>
+                </div>
 
+                <!--names -->
+                <div class="form-group">
 
+                    <div class="col-lg-2 control-label">
+                        <label for="fnameManager">First Name</label>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="managercode" class="col-lg-2 control-label">Employee Code</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" name="idnumber" id="idnumber"  readonly/>
-                            </div>
-                        </div>
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="fnameManager" placeholder="" 
+                               pattern="[a-zA-Z]{1,20}" title="Use only letters for First Name" required/>
+                    </div>
+              
+			  </div>
 
-                        <!--names -->
-                        <div class="form-group">
-
-                            <div class="col-lg-2 control-label">
-                                <label for="fnameManager">First Name</label>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <input type="text" class="form-control" name="fname" placeholder="" id="fname"
-                                       title="Use only letters for First Name"/>
-                            </div>
-
-                            <div class="col-lg-2 control-label">
-                                <label for="lnameManager">Last Name</label>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <input type="text" class="form-control" name="lname" placeholder="" id="lname"
-                                       title="Use only letters for Last Name" />
-                            </div>
-
-                        </div>
-
-
-
-                 
-
-                        <div class="form-group">
-                            <div class="col-lg-2 control-label">
-                                <label for="mpnumber">Mobile Phone</label>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <input type="text" class="form-control" name="phoneNumber" placeholder="" id="phoneNumber"
-                                       title="Phone Number eg:0711234567 or 0112345678" />
-                            </div>
-
-                        </div>
-
-						                        <div class="form-group">
-                            <div class="col-lg-2 control-label">
-                                <label for="mpnumber">Role</label>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <input type="text" class="form-control" name="role" placeholder="" id="role"
-                                       title="Phone Number eg:0711234567 or 0112345678" />
-                            </div>
-
-                        </div>
-						
-                        <div class="form-group">
-                            <div class="col-lg-2 control-label">
-                                <label for="mpnumber">Email</label>
-                            </div>
-
-                            <div class="col-lg-4">
-                                <input type="text" class="form-control" name="email" placeholder="" id="email"
-                                       title="Phone Number eg:0711234567 or 0112345678" />
-                            </div>
-
-                        </div>
-						
-                    </fieldset>
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-
-            </div>
-        </form>
-
-        </div>
-    </div>
-</div>
-
-		
-		
-		
-		
-		<script type="text/javascript">
-    $(document).ready(function () {
-		
-        $.getJSON('profileManage/users_list', function (data) {
-           
-            var len = data.length;
-
-            for (x = 0; x < len; x++) {
-               
-			   
-			    
-			   
-                $("tbody").append('<tr class="' + x + '" id="' + data[x].id + '">');
-                $("." + x + "").append('<td id="' + data[x].id + "-image" + '">' +'<img src="<?php echo URL; ?>views/profileManage/propic/'+data[x].image+'"  class="img-responsive img-rounded">'  + '</td>');				
-                $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].idNumber  + '</td>');				
-                $("." + x + "").append('<td id="' + data[x].id + "-role" + '">' + data[x].role + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-fnamelname" + '">' + data[x].fname+" "+data[x].lname + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-email" + '">' + data[x].email  + '</td>');
+                <div class="form-group">
 				
-                $("." + x + "").append('<td id="' + "-employee" + '">' + '</td>');
-                $("." + x + "").append('<td class="hide" id="' + data[x].idNumber + "-employeeID" + '">' + x + '</td>');
-                $("." + x + "").append('<td><div class="icon-preview"><a href="' + data[x].idNumber + '" class="edit"><i class="material-icons" >mode_edit</i></a></div></td>');
-                $("." + x + "").append('<td><div class="icon-preview"><a href="' + data[x].idNumber + '" class="remove"><i class="material-icons">delete</i></a></div></td>');
-               				
+                    <div class="col-lg-2 control-label">
+                        <label for="lnameManager">Last Name</label>
+                    </div>
 
-				$("." + x + "").append('</tr>');
-            }
-			
-			            $('.remove').click(function (e) {
-                var id = $(this).attr('href');
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="lnameManager" placeholder="" 
+                               pattern="[a-zA-Z]{1,20}" title="Use only letters for Last Name" required />
+                    </div>
 
-                swal({title: "Are you sure?",
-                    text: "You will not be able to recover this Employee!",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Yes, delete it!",
-                    cancelButtonText: "No, cancel it!",
-                    closeOnConfirm: false,
-                    closeOnCancel: false},
-                function (isConfirm) {
+                </div>
 
-                    if (isConfirm) {
-                        $.ajax({
-                            type: 'post',
-                            url: 'profileManage/delete_employees',
-                            data: {idValue: id},
-                            success: function (data) {
-                                swal("Deleted!", "Data has been deleted!", "success");
-                                $('#subloader03').empty();
-                                $('#subloader03').load('profileManage/adminUsersAdd').hide().fadeIn('slow');
-                               
-                            }
-                        });
+                <!--phone number +nic -->
 
-                    } else {
-                        swal("Cancelled", "Your Employee is safe :)", "error");
-                    }
+                <div class="form-group">
+
+					
+
+					<div class="col-lg-2 control-label">
+                        <label for="emails">Email</label>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="emails" placeholder="" required=""
+                               />
+                    </div>
+					
+								  </div>
+
+                <div class="form-group">
+					
+					
+					<div class="col-lg-2 control-label">
+                        <label for="mpnumber">Mobile Phone</label>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="mpnumber" placeholder="" required=""
+                               pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" title="Phone Number eg:0711234567 or 0112345678"/>
+                    </div>
+.					
+                </div>
+
+
+
+
+                <!-- emp type -->
+                <div class="form-group">
+                    <label for="emptype" class="col-lg-2 control-label" >Types of Employment</label>
+                    <div class="col-lg-5" id="typeinemp">
+                        <select required class="form-control" id="idDetails" name="idDetails" >
+
+                            <option value="">Choose here</option>
+                            <option value="admin" >Admin</option>
+                            <option value="profileManage" >Profile Management</option>
+                            <option value="locationfind">Location Identification</option>
+                            <option value="travelGuide">Travel Guide</option>
+                            <option value="reservation">Reservation</option>
+                            <option value="payment">Payment Handling</option>							
+                        </select>
+
+                    </div>
+                </div>
+
+       <input type="hidden" id="useriddone" name="useriddone">
+	   <input type="hidden" id="userpassworddone" name="userpassworddone">
+                <!-- image upload -->
+                
+                
+                <div class="form-group">
+                    <label for="file" class="col-lg-2 control-label">File</label>
+                    <div class="col-lg-5" id="wrapper">
+                        <input type="text" readonly="" class="form-control floating-label" placeholder="Browse...">
+                       <input type="file" name="file" id="file">
+                       <input type="hidden" id="uploadphotos" name="uploadphotos">
+                    </div>
+                </div>
+           
+
+		   
+                <!-- end -->
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                         
+                        <input type="reset" class="btn btn-default">
+                        <input type="submit" class="btn btn-primary"  >
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    <!-- end of filling application-->
+
+
+
+<script  type="text/javascript">
+ $(document).ready(function () {
+document.getElementById("uploadphotos").value = "default_profile_photo.png";
+   });
+
+                $("#wrapper").on("change", "#file", function () {
+
+                    var username = $("#file").val();
+
+                    var fields = username.split("fakepath\\");
+                    var name = fields[1];
+                    document.getElementById("uploadphotos").value = name;
                 });
 
 
-                return false;
-            });
-			
-			    $('.edit').click(function (e) {
-                var id = $(this).attr('href');
 
-                $('#myModal').appendTo("body").modal('show');
-                setTimeout(function () {
-                    var mycode = $('#' + id + '-employeeID').text();
-//assing values
-                    $('#idnumber').val(data[mycode].idNumber);
-                    $('#fname').val(data[mycode].fname);
-                    $('#lname').val(data[mycode].lname);
-                    $('#role').val(data[mycode].role);
-                    $('#email').val(data[mycode].email);
-                    $('#phoneNumber').val(data[mycode].phoneNumber);
-                    $('#image').val(data[mycode].image);
-                   
-                }, 250);
-                e.preventDefault();
-            });
-			
-			
-			
-			
-  });
-  
-  
-  	    $("#searchInput").keyup(function () {
-        //split the current value of searchInput
-        var data = this.value.split(" ");
-        //create a jquery object of the rows
-        var jo = $("#dbody").find("tr");
-        if (this.value == "") {
-            jo.show();
-            return;
+	var userIdCreator;
+    $("#idDetails").change(function () {
+		
+		
+
+		
+		
+        var idDetails1 = document.getElementById("idDetails").value;
+        if (idDetails1 === "admin")
+        {
+            userIdCreator = "Ad";
+
+        } 
+		else if (idDetails1 === "profileManage")
+        {
+            userIdCreator = "Pm";
+
         }
-        //hide all the rows
-        jo.hide();
+		else if (idDetails1 === "locationfind")
+        {
+            userIdCreator = "Lf";
 
-        //Recusively filter the jquery object to get results.
-        jo.filter(function () {
-            var $t = $(this);
-            for (var d = 0; d < data.length; ++d) {
-                if ($t.is(":contains('" + data[d] + "')")) {
-                    return true;
-                }
-            }
-            return false;
-        })
-        //show the rows that match.
-        .show();
+        }
+		else if (idDetails1 === "travelGuide")
+        {
+            userIdCreator = "Tg";
+
+        }		
+		else if (idDetails1 === "reservation")
+        {
+            userIdCreator = "Rn";
+
+        }
+		else if (idDetails1 === "payment")
+        {
+            userIdCreator = "Pt";
+
+        }		
+        var d = new Date();
+        var x = d.getYear() + d.getMonth();
+        var y = d.getDate() - d.getHours() - d.getMinutes() - d.getSeconds() + d.getMilliseconds();
+
+        var userId = userIdCreator + "-" + (x + y);
+        document.getElementById('useriddone').value = userId;
+	  
+	  
+	  
+	  		  var passwd = '';
+  var chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  for (i=1;i<8;i++) {
+    var c = Math.floor(Math.random()*chars.length + 1);
+    passwd += chars.charAt(c)
+  }
+
+	document.getElementById('userpassworddone').value = passwd;  
+	  
+	  
+	  
     });
-  
-  
-          $('#updateAdmin_form').submit(function (e) {
-      
-         e.preventDefault();
-        var form = $('#updateAdmin_form');
+	
+	
+	
+	
+    $('#insertEmployees').submit(function (e) {
+
+
+	        e.preventDefault();
+         swal({   title: "Wait",   text: "processing to send e-mail",   timer: 4000,   showConfirmButton: false });
+        var form = $('#insertEmployees');
         $.ajax({
             type: form.attr('method'),
             url: form.attr('action'),
             data: form.serialize(),
             success: function (data) {
-                $('#myModal').appendTo("body").modal('hide');
-         $('#subloader03').empty();
-           $('#subloader03').load('profileManage/adminUsersAdd').hide().fadeIn('slow');
+				 swal("Email successfully!", "click okay to continue", "success");
+                console.log(data);
+                $('#subloader03').empty();
+                $('#subloader03').load('profileManage/adminUsersAdd').hide().fadeIn('slow');
             }
         });
-                                
-                                
-        });
-  
-  
-  
-  
+	
+	
     });
-	
-	
-	</script>
-	
-	
-	
-	
-	
-	
+</script>
+        <script type="text/javascript">
+            function submitForm() {
+
+                console.log("submit event");
+                var fd = new FormData(document.getElementById("insertEmployees"));
+
+                fd.append("label", "");
+                $.ajax({
+                    url: "/trainX/views/profileManage/upload.php",
+                    type: "POST",
+                    data: fd,
+                    enctype: 'multipart/form-data',
+                    processData: false, // tell jQuery not to process the data
+                    contentType: false   // tell jQuery not to set contentType
+                }).done(function (data) {
+                    console.log("PHP Output:");
+                    console.log(data);
+                });
+                return false;
+            }
+        </script>

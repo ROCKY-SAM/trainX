@@ -70,7 +70,7 @@
 		
 		
 		
-        $.getJSON('profileManage/users_list', function (data) {
+        $.getJSON('profileManage/customer_list', function (data) {
            
             var len = data.length;
 
@@ -80,11 +80,10 @@
 			    
 			   
                 $("tbody").append('<tr class="' + x + '" id="' + data[x].id + '">');
-                $("." + x + "").append('<td id="' + data[x].id + "-image" + '">' +'<img src="/trainX/views/profileManage/propic/'+data[x].image+'"  class="img-responsive img-rounded">'  + '</td>');				
-                $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].idNumber  + '</td>');				
-                $("." + x + "").append('<td id="' + data[x].id + "-role" + '">' + data[x].role + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-fnamelname" + '">' + data[x].fname+" "+data[x].lname + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-email" + '">' + data[x].email  + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].customerId  + '</td>');				
+                $("." + x + "").append('<td id="' + data[x].id + "-role" + '">' + data[x].Nic + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-fnamelname" + '">' + data[x].email + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-email" + '">' + data[x].phoneNumber  + '</td>');
 				$("." + x + "").append('</tr>');
             }
   });
