@@ -40,3 +40,16 @@ angular.module('app.controllers', [])
 .controller('paymentSuccess', function($scope) {
 
 })
+
+
+.controller('travelGuide', function($scope) {
+
+})  
+
+.controller('PlacesOfTravelG', function($scope) {
+
+})  
+
+.controller('TrainSchedules', function($scope) {
+
+})  

@@ -90,11 +90,7 @@ angular.module('app.routes', [])
                         }
                     })
 
-                    .state('tabsController', {
-                        url: '/page20',
-                        abstract: true,
-                        templateUrl: 'templates/tabsController.html'
-                    })
+
 
 
                     .state('tabsController.reservationDetails', {
@@ -119,6 +115,39 @@ angular.module('app.routes', [])
                     })
                     
                     
+					  .state('tabsController.travelGuide', {
+      url: '/page29',
+      views: {
+        'tab13': {
+          templateUrl: 'templates/travelGuide.html',
+          controller: 'travelGuide'
+        }
+      }
+    })
+	
+	      .state('tabsController.PlacesOfTravelG', {
+      url: '/page31',
+      views: {
+        'tab13': {
+          templateUrl: 'templates/PlacesOfTravelG.html',
+          controller: 'PlacesOfTravelG'
+        }
+      }
+    })
+	
+	      .state('tabsController.TrainSchedules', {
+      url: '/page32',
+      views: {
+        'tab13': {
+          templateUrl: 'templates/TrainSchedules.html',
+          controller: 'TrainSchedules'
+        }
+      }
+    })
+	
+	
+					
+					
                      .state('tabsController.paymentSuccess', {
                         url: '/page60',
                         views: {
@@ -129,6 +158,11 @@ angular.module('app.routes', [])
                         }
                     })
                     
+					                    .state('tabsController', {
+                        url: '/page20',
+                        abstract: true,
+                        templateUrl: 'templates/tabsController.html'
+                    })
 
 
             // if none of the above states are matched, use this as the fallback
