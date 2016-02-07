@@ -56,10 +56,15 @@
 		    $('#admin_list_manage').click(function (e2) {
         e2.preventDefault();
         $('#subloader03').empty();
+        $('#subloader03').load('profileManage/adminUsersEdit', function () {
+        });
+    });
+				    $('#adminuser').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader03').empty();
         $('#subloader03').load('profileManage/adminUsersAdd', function () {
         });
     });
-		
 		
 		
 		
@@ -75,7 +80,7 @@
 			    
 			   
                 $("tbody").append('<tr class="' + x + '" id="' + data[x].id + '">');
-                $("." + x + "").append('<td id="' + data[x].id + "-image" + '">' +'<img src="<?php echo URL; ?>views/profileManage/propic/'+data[x].image+'"  class="img-responsive img-rounded">'  + '</td>');				
+                $("." + x + "").append('<td id="' + data[x].id + "-image" + '">' +'<img src="/trainX/views/profileManage/propic/'+data[x].image+'"  class="img-responsive img-rounded">'  + '</td>');				
                 $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].idNumber  + '</td>');				
                 $("." + x + "").append('<td id="' + data[x].id + "-role" + '">' + data[x].role + '</td>');
                 $("." + x + "").append('<td id="' + data[x].id + "-fnamelname" + '">' + data[x].fname+" "+data[x].lname + '</td>');

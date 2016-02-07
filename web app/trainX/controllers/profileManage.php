@@ -21,11 +21,16 @@ class ProfileManage extends Controller {
 		$this->view->render('profileManage/adminUsers');
 	}
 	
-	function adminUsersAdd() 
+	function adminUsersEdit() 
+	{	
+		$this->view->render('profileManage/adminUsersEdit');
+	}
+    
+	
+		function adminUsersAdd() 
 	{	
 		$this->view->render('profileManage/adminUsersAdd');
 	}
-    
 	public function color_update() {
 
         $sidebarcolor = $_POST['sidebarcolor'];
@@ -66,7 +71,7 @@ $userpassword = $_POST['userpassword'];
 	 
 	    public function updateEmployees() {
  
- echo $idnumber,$fname,$lname,$role,$email,$phoneNumber;
+
         $idnumber = $_POST['idnumber'];
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
@@ -77,5 +82,35 @@ $userpassword = $_POST['userpassword'];
         
            $sendtomodel=new ProfileManage_model();
            $sendtomodel->update_employees($idnumber,$fname,$lname,$role,$email,$phoneNumber);
+    }
+	
+	    public function insertEmployees() {
+
+     $code = $_POST['managercode'];
+        $fname = $_POST['fnameManager'];
+        $lname = $_POST['lnameManager'];
+        $mpnumber = $_POST['mpnumber'];
+        $emails = $_POST['emails'];
+        $emptyp=$_POST['idDetails'];
+        $user = $_POST['useriddone'];
+        $password = $_POST['userpassworddone'];
+        $image=$_POST['uploadphotos'];
+        
+
+      $sendtomodel=new ProfileManage_model();
+      $sendtomodel->add_employees($code,$fname,$lname,$mpnumber,$emails,$emptyp,$user,$password,$image);
+    }
+	
+	
+	//customer part
+			function customerPage() 
+	{	
+		$this->view->render('profileManage/customerPage');
+	}
+	
+		    public function customer_list() {
+        $model = new ProfileManage_model();
+        echo json_encode($model->select_all_customers());
+
     }
 }
