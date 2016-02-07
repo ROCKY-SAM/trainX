@@ -41,6 +41,8 @@ angular.module('app.controllers', [])
 
 })
 
+<<<<<<< HEAD
+=======
 
 .controller('travelGuide', function($scope) {
 
@@ -53,3 +55,4 @@ angular.module('app.controllers', [])
 .controller('TrainSchedules', function($scope) {
 
 })  
+>>>>>>> 687645207b89caa9b1e14a2f06d344ff9239adad

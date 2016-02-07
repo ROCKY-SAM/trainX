@@ -158,11 +158,17 @@ angular.module('app.routes', [])
                         }
                     })
                     
+<<<<<<< HEAD
+                    
+                 
+                    
+=======
 					                    .state('tabsController', {
                         url: '/page20',
                         abstract: true,
                         templateUrl: 'templates/tabsController.html'
                     })
+>>>>>>> 687645207b89caa9b1e14a2f06d344ff9239adad
 
 
             // if none of the above states are matched, use this as the fallback
