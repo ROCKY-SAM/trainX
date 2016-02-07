@@ -463,12 +463,12 @@
 
 
                 } else if (test == "payment") {
-                    $('#usertype').append('Payment Handling');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="notification_payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">account_box</i>Notifications</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="location"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Payment Report</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Travel Guide</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
+                    $('#usertype').append('Payment Manager');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="notification_payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">mail_outline</i>Notifications</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment_report"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Payment Report</a>');
+//                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Travel Guide</a>');
+//                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Reservation</a>');
+//                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
                 }
 
 //profile management start
@@ -502,10 +502,17 @@
 //profile management end
 
 //payment start
-	                $('#notification_payment').click(function (e2) {
+                $('#notification_payment').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
                     $('#subloader2').load('paymentHandel/index', function () {
+                    });
+                });
+                
+                $('#payment_report').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('paymentHandel/payment_report', function () {
                     });
                 });
 
