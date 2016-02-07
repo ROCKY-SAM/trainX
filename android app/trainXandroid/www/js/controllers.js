@@ -40,3 +40,4 @@ angular.module('app.controllers', [])
 .controller('paymentSuccess', function($scope) {
 
 })
+
