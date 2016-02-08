@@ -1,8 +1,7 @@
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-    <div class="btn-group btn-group-justified btn-group-raised">
-        <a href="javascript:void(0)" id="payment_email" class="btn btn-raised btn-default" style="background-color: #CE93D8
-">Send Emails</a> 
-        <a href="javascript:void(0)" id="payement_sms" class="btn btn-raised btn-primary" style="background-color: #008066">Send SMS</a>
+    <div class="mdl-tabs__tab-bar">
+        <a href="javascript:void(0)" id="payment_email" class="btn btn-raised btn-default">Send Emails</a> 
+        <a href="javascript:void(0)" id="payement_sms" class="btn btn-raised btn-default">Send SMS</a>
 
     </div>
 </div>
