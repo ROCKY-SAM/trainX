@@ -23,13 +23,25 @@ class PaymentHandel extends Controller {
     }
 
     public function sendEmails() {
-        $inputemail = $_POST['inputEmail'];
-        $inputSubject = $_POST['inputSubject'];
-        $body = $_POST['body'];
-        
-
-        $sendtomodel = new PaymentHandle_model();
+        $inputemail = $_POST['inputEmaill'];
+        $inputSubject = $_POST['inputSubjectl'];
+        $body = $_POST['bodyl'];
+       
+        $sendtomodel = new PaymentHandel_model();
         $sendtomodel->sendEmail($inputemail, $inputSubject, $body);
     }
+    
+    function customEmail() {
+        $this->view->render('paymentHandel/customEmails');
+    }
+    
+    public function customEmails() {
+        //$inputemail = $_POST['kavi.oshan8@gmail.com'];
+               
+       
+        $sendtomodel = new PaymentHandel_model();
+        $sendtomodel->customEmails();
+    }
+    
 
 }
