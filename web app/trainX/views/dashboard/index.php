@@ -442,12 +442,11 @@
 
                 } else if (test == "locationfind") {
                     $('#usertype').append('Location Idintification');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="profile"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">account_box</i>Profile Management</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="location"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Location Idintification</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Travel Guide</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="clientInform"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">call</i>Client Inform</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="location_identification"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Location Idintification</a>');                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Travel Guide</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Reservation</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
-                } else if (test == "travelGuide") {
+                }  else if (test == "travelGuide") {
                     $('#usertype').append('Travel Guide');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="profile"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">account_box</i>Profile Management</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="location"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Location Idintification</a>');
@@ -518,7 +517,20 @@
 
 //payment end
 
-
+//Location Finder start
+$('#clientInform').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('locationFinder/clientInform', function () {
+                    });
+                });
+$('#location_identification').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('locationFinder/location_identi', function () {
+                    });
+                });
+ //Location Finder end
 
                 $('#reservation').click(function (e2) {
                     e2.preventDefault();
