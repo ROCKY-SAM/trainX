@@ -19,4 +19,37 @@ angular.module('app.controllers', [])
 .controller('informationCtrl', function($scope) {
 
 })
-    
+.controller('findMyTrainCtrl', function($scope) {
+
+}) 
+
+.controller('seatReservations', function($scope) {
+
+})
+
+
+.controller('reservationDetails', function($scope) {
+
+})
+
+
+.controller('paymentMethod', function($scope) {
+
+})
+
+.controller('paymentSuccess', function($scope) {
+
+})
+
+
+.controller('travelGuide', function($scope) {
+
+})  
+
+.controller('PlacesOfTravelG', function($scope) {
+
+})  
+
+.controller('TrainSchedules', function($scope) {
+
+})  
