@@ -455,9 +455,9 @@
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
                 } else if (test == "reservation") {
                     $('#usertype').append('Reservation');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="profile"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">account_box</i>Customer Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="location"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Seat Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Admin Reservation</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reportreserve"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">account_box</i>Customer Reservation</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="emrgncy"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Seat Reservation</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="seat"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Admin Reservation</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Report</a>');
 
 
@@ -553,12 +553,31 @@ $('#location_identification').click(function (e2) {
 
 //travel guide end
 
-                $('#reservation').click(function (e2) {
+//reservation start
+
+                $('#reportreserve').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('reservation/index', function () {
+                    $('#subloader2').load('reservationManagement/index', function () {
                     });
                 });
+                $('#emrgncy').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('reservationManagement/emergency', function () {
+                    });
+                });
+
+                $('#seat').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('reservationManagement/seatRes', function () {
+                    });
+                });
+
+
+//reservation ends
+
 
 
                 $('.coloredit').click(function (e) {
