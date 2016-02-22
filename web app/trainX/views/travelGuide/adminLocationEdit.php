@@ -172,7 +172,7 @@
                             success: function (data) {
                                 swal("Deleted!", "Data has been deleted!", "success");
                                 $('#subloader03').empty();
-                                $('#subloader03').load('travelGuide/adminLocationsAdd').hide().fadeIn('slow');
+                                $('#subloader03').load('travelGuide/adminLocationEdit').hide().fadeIn('slow');
                                
                             }
                         });
@@ -249,7 +249,7 @@
             success: function (data) {
                 $('#myModal').appendTo("body").modal('hide');
          $('#subloader03').empty();
-           $('#subloader03').load('travelGuide/adminLocationsAdd').hide().fadeIn('slow');
+           $('#subloader03').load('travelGuide/adminLocationEdit').hide().fadeIn('slow');
             }
         });
                                 
