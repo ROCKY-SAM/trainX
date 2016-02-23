@@ -4,10 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/trainX/models/profileManage_model.php</file>
-            <file>file:/C:/xampp/htdocs/trainX/views/paymentHandel/index.php</file>
-            <file>file:/C:/xampp/htdocs/trainX/models/paymentHandle_model.php</file>
-            <file>file:/C:/xampp/htdocs/trainX/views/paymentHandel/alertoffers.php</file>
-            <file>file:/C:/xampp/htdocs/trainX/controllers/paymentHandel.php</file>
+            <file>file:/C:/xampp/htdocs/trainX/views/reservationManagement/seat.php</file>
+            <file>file:/C:/xampp/htdocs/trainX/models/paymentHandel_model.php</file>
+            <file>file:/C:/xampp/htdocs/trainX/views/dashboard/index.php</file>
+            <file>file:/C:/xampp/htdocs/trainX/models/travelGuide_model.php</file>
+            <file>file:/C:/xampp/htdocs/trainX/views/reservationManagement/addTrains.php</file>
+            <file>file:/C:/xampp/htdocs/trainX/views/profileManage/adminUsersEdit.php</file>
+            <file>file:/C:/xampp/htdocs/trainX/views/reservationManagement/seatRes.php</file>
+            <file>file:/C:/xampp/htdocs/trainX/controllers/reservationManagement.php</file>
             <file>file:/C:/xampp/htdocs/trainX/views/profileManage/adminUsersAdd.php</file>
         </group>
     </open-files>

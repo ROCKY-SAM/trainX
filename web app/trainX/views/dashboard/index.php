@@ -457,7 +457,7 @@
                     $('#usertype').append('Reservation');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reportreserve"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">account_box</i>Customer Reservation</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="emrgncy"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Seat Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="seat"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Admin Reservation</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="schedule"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Add Train Schedules</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Report</a>');
 
 
@@ -568,10 +568,10 @@ $('#location_identification').click(function (e2) {
                     });
                 });
 
-                $('#seat').click(function (e2) {
+                $('#schedule').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('reservationManagement/seatRes', function () {
+                    $('#subloader2').load('reservationManagement/schedulec', function () {
                     });
                 });
 
