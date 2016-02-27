@@ -1,8 +1,6 @@
 	    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 	      <div class="mdl-tabs__tab-bar">
-	          <a href="javascript:void(0)" id="admin_list_manage" class="btn btn-raised btn-default">Admin List Manage</a>
-			  &nbsp;
-	          <a href="javascript:void(0)" id="adminuser" class="btn btn-raised btn-default">Admin Users Add</a>
+	         
 	      </div>
 	    </div>
 	
@@ -12,7 +10,7 @@
 			
 			<form class="form-horizontal">
     <fieldset>
-        <legend>Search Employee</legend>
+        <legend>Search Customer</legend>
         <div class="form-group">
             <div class="col-lg-5">
                 <input type="text" class="form-control" id="searchInput" placeholder="filter">
@@ -25,17 +23,22 @@
 			
 		<table class="table table-striped table-hover ">
         <col style="width:10%">		
-        <col style="width:15%">
-        <col style="width:15%">
         <col style="width:20%">
+        <col style="width:10%">
         <col style="width:20%">
+        <col style="width:5%">		
+        <col style="width:10%">
+		<col style="width:10%">
         <thead>
             <tr>
-                <th></th>			
-                <th>Employee ID</th>
-                <th>Employee Role</th>
-                <th>Employee Full Name</th>
-                <th>Employee Email</th>
+                <th>Customer ID</th>
+                <th>Customer fullname</th>
+                <th>National ID</th>
+				<th>Email</th> 
+				<th></th> 				
+				<th>Phone number</th>						                
+				<th>Last activity</th>
+
             </tr>
 
         </thead>
@@ -81,9 +84,12 @@
 			   
                 $("tbody").append('<tr class="' + x + '" id="' + data[x].id + '">');
                 $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].customerId  + '</td>');				
-                $("." + x + "").append('<td id="' + data[x].id + "-role" + '">' + data[x].Nic + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-fnamelname" + '">' + data[x].email + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-email" + '">' + data[x].phoneNumber  + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-fullname" + '">' + data[x].customerfname+' '+  data[x].customerlname + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-cusnic" + '">' + data[x].Nic + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-cusemail" + '">' + data[x].email  + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-cusemailsend" + '"><i class="mdl-color-text--green-800 material-icons" role="presentation">mail_outline</i></td>'); 
+ $("." + x + "").append('<td id="' + data[x].id + "-cusphone" + '">' + data[x].phoneNumber + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-cuslogin" + '">' + data[x].lastlogindate  + '</td>');
 				$("." + x + "").append('</tr>');
             }
   });

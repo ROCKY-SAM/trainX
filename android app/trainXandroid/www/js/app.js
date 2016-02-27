@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives'])
 
-.run(function($ionicPlatform,$state) {
+.run(function($ionicPlatform,$state,$rootScope,$timeout) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,6 +20,12 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     }
 	
 	
+	
+	
+	
+	
+	window.localStorage.setItem("ipaddress",'192.168.1.2');
+	
 		  if(window.localStorage.getItem("name") == "done"){
 
 	//	$state.go("tabsController.home");
@@ -30,6 +36,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   // $state.go("login");
 	  $state.transitionTo("login");
 }
+	
+	
+
+
 	
 	
 	

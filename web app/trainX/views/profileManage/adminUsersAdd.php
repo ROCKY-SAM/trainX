@@ -219,7 +219,7 @@ document.getElementById("uploadphotos").value = "default_profile_photo.png";
 				 swal("Email successfully!", "click okay to continue", "success");
                 console.log(data);
                 $('#subloader03').empty();
-                $('#subloader03').load('profileManage/adminUsersAdd').hide().fadeIn('slow');
+                $('#subloader03').load('profileManage/adminUsers').hide().fadeIn('slow');
             }
         });
 	

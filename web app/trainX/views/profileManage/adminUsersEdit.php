@@ -49,7 +49,7 @@
                 <h4 class="modal-title" id="myModalLabel"><legend>Edit Employee</legend></h4>
 
             </div>
-   <form class="form-horizontal" id="updateAdmin_form" action="profileManage/updateEmployees" method="post" ">
+   <form class="form-horizontal" id="updateAdmin_form" action="profileManage/updateEmployees" method="post" >
             <div class="modal-body">
              
                     <fieldset>
@@ -197,7 +197,7 @@
                             success: function (data) {
                                 swal("Deleted!", "Data has been deleted!", "success");
                                 $('#subloader03').empty();
-                                $('#subloader03').load('profileManage/adminUsersAdd').hide().fadeIn('slow');
+                                $('#subloader03').load('profileManage/adminUsersEdit').hide().fadeIn('slow');
                                
                             }
                         });
@@ -266,15 +266,20 @@
           $('#updateAdmin_form').submit(function (e) {
       
          e.preventDefault();
+		
         var form = $('#updateAdmin_form');
         $.ajax({
             type: form.attr('method'),
             url: form.attr('action'),
             data: form.serialize(),
+			
             success: function (data) {
-                $('#myModal').appendTo("body").modal('hide');
+				 cache: false;
+		//	  $("#myModal").removeClass("fade").modal("hide");
+
+			
          $('#subloader03').empty();
-           $('#subloader03').load('profileManage/adminUsersAdd').hide().fadeIn('slow');
+         $('#subloader03').load('profileManage/adminUsersEdit').hide().fadeIn('slow');
             }
         });
                                 

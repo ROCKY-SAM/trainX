@@ -131,5 +131,40 @@ Password : $password</br>
     }
 	
 	
+			    public function select_all_usermessage() {
+        $results = $this->db->prepare("SELECT DISTINCT senderId FROM messagesystem");
+        $results->execute();
+        return $results->fetchAll();
+    }
+	
+			    public function addNewMesseagephp($messagesenderId,$messagereceverId,$messageText,$messagetime) {
+      $typeof="receve";
+	         $adder = $this->db->prepare("INSERT INTO messagesystem (senderId,replyId,messageText,timeDate,type)
+       VALUES(:senderId,:replyId,:messageText,:timeDate,:type)");
+
+      $adder->execute(array(':senderId' =>$messagesenderId,':replyId' =>$messagereceverId,':messageText' =>$messageText,':timeDate' =>$messagetime,':type' =>$typeof));
+ 
+	
+    }
+	
+	
+	
+	//android db
+
+		    public function addNewMesseage($messageId,$messageText,$messagetime) {
+      $typeof="send";
+	         $adder = $this->db->prepare("INSERT INTO messagesystem (senderId,messageText,timeDate,type)
+       VALUES(:senderId,:messageText,:timeDate,:type)");
+
+      $adder->execute(array(':senderId' =>$messageId,':messageText' =>$messageText,':timeDate' =>$messagetime,':type' =>$typeof));
+    echo "done";
+	
+    }
+	
+		    public function select_all_message() {
+        $results = $this->db->prepare("SELECT * FROM messagesystem");
+        $results->execute();
+        return $results->fetchAll();
+    }
 	
 }

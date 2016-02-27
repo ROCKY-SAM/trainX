@@ -54,7 +54,15 @@ angular.module('app.routes', [])
                         }
                     })
 
-
+.state('tabsController.myAccountEdit', {
+                        url: '/myaccounteditpage',
+                        views: {
+                            'tab14': {
+                                templateUrl: 'templates/myAccountEdit.html',
+                                controller: 'myAccountEditCtrl'
+                            }
+                        }
+                    })
 
 
 

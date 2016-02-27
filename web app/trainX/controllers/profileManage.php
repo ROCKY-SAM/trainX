@@ -11,6 +11,12 @@ class ProfileManage extends Controller {
 		$this->view->render('profileManage/index');
 	}
 	
+		function messagepage() 
+	{	
+		$this->view->render('profileManage/messagepage');
+	}
+	
+	
 	function pages() 
 	{	
 		$this->view->render('profileManage/pages');
@@ -80,8 +86,8 @@ $userpassword = $_POST['userpassword'];
         $phoneNumber = $_POST['phoneNumber'];
         
         
-           $sendtomodel=new ProfileManage_model();
-           $sendtomodel->update_employees($idnumber,$fname,$lname,$role,$email,$phoneNumber);
+         $sendtomodel=new ProfileManage_model();
+          $sendtomodel->update_employees($idnumber,$fname,$lname,$role,$email,$phoneNumber);
     }
 	
 	    public function insertEmployees() {
@@ -113,4 +119,51 @@ $userpassword = $_POST['userpassword'];
         echo json_encode($model->select_all_customers());
 
     }
+	
+	
+		public function message_senderlist() {
+        $model = new ProfileManage_model();
+        echo json_encode($model->select_all_usermessage());
+
+    }
+	
+			public function insertMessagephp() {
+
+			$messagesenderId=$_POST['senderid'];
+         $messagereceverId=$_POST['receverid'];
+	   $messageText=$_POST['textofmessage'];
+      $messagetime = $_POST['time'];
+
+//echo  $messageId,$messageText,$messagetime;
+   $messagephp = new ProfileManage_model();
+   $messagephp->addNewMesseagephp($messagesenderId,$messagereceverId,$messageText,$messagetime);  
+    
+    }
+	
+	
+	
+	
+	
+	//android manager
+		public function insertMessageAndroid() {
+
+         $messageId=$_GET['id'];
+		
+	   $messageText=$_GET['textofmessage'];
+      $messagetime = $_GET['time'];
+	
+//echo  $messageId,$messageText,$messagetime;
+		$messageAndroid = new ProfileManage_model();
+   $messageAndroid->addNewMesseage($messageId,$messageText,$messagetime);  
+    
+    }
+	
+	public function message_list() {
+        $model = new ProfileManage_model();
+        echo json_encode($model->select_all_message());
+
+    }
+	
+	
+	
 }

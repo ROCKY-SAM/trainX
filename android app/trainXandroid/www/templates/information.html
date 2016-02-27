@@ -1,3 +1,56 @@
 <ion-view title="<center>Information</center>">
-    <ion-content overflow-scroll="true" padding="true" class="has-header"></ion-content>
-</ion-view>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+	
+ <div class="item item-divider">
+    Contact Us
+  </div>
+
+<p class="item" >Telephones : +94 11 2 421281</p>
+<p class="item" >Email : gmr@railway.gov.lk	</p>
+	
+ <div class="item item-divider">
+    Or Message Us
+  </div>	
+  <br>
+
+	<div id="table-wrapper" >
+  <div id="table-scroll">
+
+  <ul class="ChatLog" id="addchatdb">
+</ul>
+  
+  
+  
+  
+</div>
+
+</div>   
+	
+	
+	
+	
+	
+	
+	</ion-content>
+	
+
+
+	<ion-footer-bar keyboard-attach class="bar-stable footer-chat item-input-inset">
+   
+   <label class="item-input-wrapper">
+      <input
+              ng-model="chat.message"
+              dir="auto"
+              type="text"  placeholder="Type to compose" style="font-size:170%"/>
+    </label>
+ 
+    <span ng-if="chat.message.length > 0">
+      <button ng-click="chatsendMessage()" class="button button-clear button-positive" ><i class="ion-paper-airplane" style="font-size:170%"></i></button>
+    </span>
+    <span ng-if="!chat.message || chat.message.length === 0">
+     <button class="button button-clear button-assertive" style="font-size:170%" disabled>Send</button>
+    </span>
+  </ion-footer-bar>
+
+  
+  </ion-view>
