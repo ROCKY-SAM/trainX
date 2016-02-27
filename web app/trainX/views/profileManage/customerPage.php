@@ -45,6 +45,106 @@
         <tbody id="dbody"></tbody>
     </table>
 
+<!-- 
+
+<div class="modal fade" id="myModalemail">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" ><legend>New message</legend></h4>
+
+            </div>
+            <form class="form-horizontal" id="email_form" action="profileManage/sendEmailCustomer" method="post" >
+                <div class="modal-body">
+
+                    <fieldset>
+
+
+
+
+
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Recipient:</label>
+            <input type="text" class="form-control" name="recipient-name" id="recipient-name" readonly />
+            <input type="text" class="form-control" name="recipient" id="recipient" hidden />	
+            <input type="text" class="form-control" name="time" id="time" hidden />	
+			
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" rows="4"  name="message-text" id="message-text"></textarea>
+          </div>
+
+                    </fieldset>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" >Save changes</button>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+-->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+	
+	
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 class="modal-title" ><legend>New message</legend></h4>
+      </div>
+	  
+	  
+	  <form class="form-horizontal" id="email_form" action="profileManage/sendEmailCustomer" method="post" >
+	  
+      <div class="modal-body">
+                  <fieldset>
+
+
+
+
+
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Recipient:</label>
+            <input type="text" class="form-control" name="recipient-name" id="recipient-name" readonly />
+            <input type="text" class="form-control" name="recipient" id="recipient" hidden />	
+            <input type="text" class="form-control" name="time" id="time" hidden />	
+            <input type="text" class="form-control" name="name" id="name" hidden />				
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" rows="4"  name="message-text" id="message-text"></textarea>
+          </div>
+
+                    </fieldset>
+      </div>
+	  
+	  
+	  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		 <button type="button" class="btn btn-primary" id="elamai">Save changes</button>
+      </div>
+           </form>
+
+
+  </div>
+
+  </div>
+</div>
+
+
 
 
 
@@ -87,11 +187,56 @@
                 $("." + x + "").append('<td id="' + data[x].id + "-fullname" + '">' + data[x].customerfname + ' ' + data[x].customerlname + '</td>');
                 $("." + x + "").append('<td id="' + data[x].id + "-cusnic" + '">' + data[x].Nic + '</td>');
                 $("." + x + "").append('<td id="' + data[x].id + "-cusemail" + '">' + data[x].email + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-cusemailsend" + '"><i class="mdl-color-text--green-800 material-icons" role="presentation">mail_outline</i></td>');
+                $("." + x + "").append('<td><div class="icon-preview"><a href="' + x + '" class="edit"><i class="mdl-color-text--green-800 material-icons" role="presentation">mail_outline</i></a></div></td>');
                 $("." + x + "").append('<td id="' + data[x].id + "-cusphone" + '">' + data[x].phoneNumber + '</td>');
                 $("." + x + "").append('<td id="' + data[x].id + "-cuslogin" + '">' + data[x].lastlogindate + '</td>');
                 $("." + x + "").append('</tr>');
             }
+			
+			
+			
+			
+			            $('.edit').click(function (e) {
+							
+               var id = $(this).attr('href');
+
+              
+                setTimeout(function () {
+					
+					
+                var currentTime = new Date();
+                var dateeofthe = currentTime.getMinutes();
+                if (dateeofthe < 10)
+                {
+                    dateeofthe = "0" + dateeofthe;
+                }
+                var tim = currentTime.getHours() + ":" + dateeofthe;
+                var yearr = currentTime.getFullYear();
+                var monthh = currentTime.getMonth() + 1;
+                if (monthh < 10)
+                {
+                    monthh = "0" + monthh;
+                }
+                var dateof = currentTime.getDate();
+                if (dateof < 10)
+                {
+                    dateof = "0" + dateof;
+                }
+                var timeYear = tim + " " + yearr + "-" + monthh + "-" + dateof;
+
+				
+           //     var mycode = $('#' + id + '-idNumber').text();
+                  $('#recipient-name').val(data[id].email);
+$('#recipient').val(window.localStorage.getItem("logginuserid"));
+$('#time').val(timeYear);
+$('#name').val(data[id].customerfname + ' ' + data[id].customerlname);
+
+
+
+  $('#myModal').appendTo("body").modal();
+                }, 250);
+                e.preventDefault(); 
+            });
         });
 
 
@@ -122,7 +267,32 @@
         });
 
 
+  
+		
+		
+		
+		
     });
+	
+
+	     $('#elamai').click(function (e) {
+		
+
+  e.preventDefault();
 
 
+          swal({title: "Wait", text: "processing to send e-mail", timer: 4000, showConfirmButton: false});
+        var form = $('#email_form');
+        $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize(),
+            success: function (data) {
+			swal("Email successfully!", "click okay to continue", "success");
+                $('#myModal').appendTo("body").modal('hide');
+     $('#subloader03').empty();
+      $('#subloader03').load('profileManage/customerPage').hide().fadeIn('slow');
+            }
+        });
+        });
 </script>

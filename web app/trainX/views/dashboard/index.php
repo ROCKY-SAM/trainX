@@ -374,7 +374,7 @@
         <script type="text/javascript">
 
             $(document).ready(function () {
-
+window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber'); ?>');
                 var dbpassword;
                 var userpassword;
                 $.getJSON('profileManage/users_list', function (data) {

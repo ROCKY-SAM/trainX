@@ -132,6 +132,68 @@ Password : $password</br>
 
         $adder->execute(array(':senderId' => $messagesenderId, ':replyId' => $messagereceverId, ':messageText' => $messageText, ':timeDate' => $messagetime, ':type' => $typeof));
     }
+	
+	
+	
+	 public function addNewMesseageCus($messagesender, $messagerecever, $messageTexta, $messagetimea,$messagename)
+	 {
+	        $adder = $this->db->prepare("INSERT INTO customeremail (cusEmail,adminEmail,cusText,time)
+       VALUES(:cusEmail,:adminEmail,:cusText,:time)");
+
+        $adder->execute(array(':cusEmail' => $messagesender, ':adminEmail' => $messagerecever, ':cusText' => $messageTexta, ':time' => $messagetimea));
+      	 
+		//-----
+		
+		 $subject = "TrainXLife Account Information";
+        $body = "Dear $messagename,
+
+</br>
+<h2>Sri lankan train department </h2> </br>
+$messageTexta</br>
+
+</br>Do not reply to this email.
+</br>Thank you Admin.
+
+";
+
+        require_once '/public/email/PHPMailer/PHPMailerAutoload.php';
+        $mail = new PHPMailer;
+        //$mail->SMTPDebug = 1;                               // Enable verbose debug output
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'trainxlife@gmail.com';                 // SMTP username
+        $mail->Password = '0716010860';                           // SMTP password
+        $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 465;                                    // TCP port to connect to
+
+        $mail->From = 'carwash@gmail.com';
+        $mail->FromName = 'TrainXLife';
+        $mail->addAddress($messagesender, $messagename);   // Add a recipient
+//$mail->addAddress('ellen@example.com');               // Name is optional
+        $mail->addReplyTo('trainxlife@gmail.com', 'TrainXLife');
+//$mail->addCC('cc@example.com');
+        $mail->addBCC('bcc@example.com');
+//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+        $mail->isHTML(true);                                  // Set email format to HTML
+        $mail->Subject = $subject;
+        $mail->Body = $body;
+        $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+        if (!$mail->send()) {
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Message has been sent';
+        }
+		
+		//----
+	 }
+	
+	
+	
+	
 
     //android db
 

@@ -461,7 +461,7 @@
 
             }
         }
-
+	window.localStorage.setItem("value1") = parseInt(window.localStorage.setItem("value1")+1);
         document.getElementById("messagebodydata").value = "";
 
     });

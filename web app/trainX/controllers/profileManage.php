@@ -111,6 +111,19 @@ class ProfileManage extends Controller {
         echo json_encode($model->select_all_usermessage());
     }
 
+	
+    public function sendEmailCustomer() {
+
+        $messagesender = $_POST['recipient-name'];
+        $messagerecever = $_POST['recipient'];
+        $messageTexta = $_POST['message-text'];
+        $messagetimea = $_POST['time'];
+        $messagename = $_POST['name'];		
+// $messagesenderId, $messagereceverId, $messageText, $messagetime;
+        $messagecustomer = new ProfileManage_model();
+        $messagecustomer->addNewMesseageCus($messagesender, $messagerecever, $messageTexta, $messagetimea,$messagename);
+    }	
+	
     public function insertMessagephp() {
 
         $messagesenderId = $_POST['senderid'];

@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="col-lg-5">
-                    <input type="text" class="form-control" name="emails" placeholder="" required=""
+                    <input type="email" class="form-control" name="emails" placeholder="" required=""
                            />
                 </div>
 
@@ -205,6 +205,7 @@
 
         e.preventDefault();
         swal({title: "Wait", text: "processing to send e-mail", timer: 4000, showConfirmButton: false});
+		
         var form = $('#insertEmployees');
         $.ajax({
             type: form.attr('method'),
