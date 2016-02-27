@@ -99,6 +99,11 @@
                                 setInterval(GetClock, 1000);
                             }
                         </script>
+						
+						<a class="mdl-navigation__link" href="javascript:void(0)" id="message_page1"><i class="mdl-color-text--blue-grey-50 material-icons" role="presentation">forum</i><span class="badge"><li id="newmessagechatnumber"></li></span></a>
+						
+						
+						
                         <div id="clockbox" class="mdl-navigation__link"></div>
 
                     </div>
@@ -473,10 +478,15 @@
                 $('#message_page').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('profileManage/index', function () {
+                    $('#subloader2').load('profileManage/messagepage', function () {
                     });
                 });
-
+                $('#message_page1').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('profileManage/messagepage', function () {
+                    });
+                });
                 $('#customer_page').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
@@ -493,10 +503,10 @@
                 $('#user_report_page').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('travelGuide/index', function () {
+                    $('#subloader2').load('profileManage/pages', function () {
                     });
                 });
-
+			
 //profile management end
 
 //payment start
@@ -506,7 +516,7 @@
                     $('#subloader2').load('paymentHandel/index', function () {
                     });
                 });
-                
+
                 $('#payment_report').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
@@ -517,21 +527,21 @@
 //payment end
 
 //Location Finder start
-$('#clientInform').click(function (e2) {
+                $('#clientInform').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
                     $('#subloader2').load('locationFinder/clientInform', function () {
                     });
                 });
-$('#location_identification').click(function (e2) {
+                $('#location_identification').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
                     $('#subloader2').load('locationFinder/location_identi', function () {
                     });
                 });
- //Location Finder end
- 
- //travel guide start
+                //Location Finder end
+
+                //travel guide start
 //reservation start
 
                 $('#reportreserve').click(function (e2) {
@@ -557,7 +567,7 @@ $('#location_identification').click(function (e2) {
 
 //reservation ends
 
-					$('#Locations').click(function (e2) {
+                $('#Locations').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
                     $('#subloader2').load('travelGuide/Locations', function () {
@@ -687,8 +697,43 @@ $('#location_identification').click(function (e2) {
 
                 });
 
-            });
+				
+				
+					
+	var value1=null;
+	          $.getJSON('profileManage/message_list', function (data) {      value1 = data.length;	});
 
+	var value2=1;
+	
+	timeout();
+           
+	
+	//------------------------------------------		
+
+
+	function timeout() {
+        setTimeout(function () {
+
+          $.getJSON('profileManage/message_list', function (data) {
+
+
+               var len = data.length;
+              if (value1 < len) {
+					value2=parseInt(len - value1);
+					document.getElementById('newmessagechatnumber').innerHTML=value2;
+				}
+
+    });
+
+
+
+// create a recursive loop.
+            timeout();
+        }, 2000);
+    }
+			//--
+			
+			 });
         </script>
 
 
