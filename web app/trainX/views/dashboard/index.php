@@ -467,11 +467,11 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
 
                 } else if (test == "payment") {
                     $('#usertype').append('Payment Manager');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="notification_payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">mail_outline</i>Notifications</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment_report"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Payment Report</a>');
-//                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Travel Guide</a>');
-//                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Reservation</a>');
-//                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="notification_payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">mail_outline</i>Email Notification</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment_sms"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>SMS Notification</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="detailed_report"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Payment Reports</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Revenue</a>');
+//                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="account"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Accounts</a>');
                 }
 
 //profile management start
@@ -506,7 +506,13 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     $('#subloader2').load('profileManage/pages', function () {
                     });
                 });
+<<<<<<< HEAD
+                
+             
+
+=======
 			
+>>>>>>> e6d0752ed128b1f7f848c04a5f6736b46fc2fe6b
 //profile management end
 
 //payment start
@@ -516,13 +522,35 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     $('#subloader2').load('paymentHandel/index', function () {
                     });
                 });
+<<<<<<< HEAD
+                
+                $('#payment_sms').click(function (e2) {
+=======
 
                 $('#payment_report').click(function (e2) {
+>>>>>>> e6d0752ed128b1f7f848c04a5f6736b46fc2fe6b
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('paymentHandel/payment_report', function () {
+                    $('#subloader2').load('paymentHandel/payment_sms', function () {
                     });
                 });
+                
+                $('#account').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('paymentHandel/paypal_account', function () {
+                    });
+                });
+                
+                   
+                $('#detailed_report').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('paymentHandel/detailed_report', function () {
+                    });
+                });
+                
+                
 
 //payment end
 
