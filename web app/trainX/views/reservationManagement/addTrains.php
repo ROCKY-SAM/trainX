@@ -35,12 +35,12 @@
                     <select required class="form-control" id="idDetails" name="startLocation" >
 
                         <option value="">Choose here</option>
-                        <option value="admin" >Colombo Fort</option>
-                        <option value="profileManage" >Kaluthara</option>
-                        <option value="locationfind">Kandy</option>
-                        <option value="travelGuide">Gampaha</option>
-                        <option value="reservation">Anuradhapura</option>
-                        <option value="payment">Mathara</option>							
+                        <option value="Colombo Fort" >Colombo Fort</option>
+                        <option value="Kaluthara" >Kaluthara</option>
+                        <option value="Kandy">Kandy</option>
+                        <option value="Gampaha">Gampaha</option>
+                        <option value="Anuradhapura">Anuradhapura</option>
+                        <option value="Mathara">Mathara</option>							
                     </select>
 
                 </div>
@@ -51,12 +51,12 @@
                 <div class="col-lg-5" id="typeinemp">
                     <select required class="form-control" id="idDetails" name="endLocation" >
                         <option value="">Choose here</option>
-                        <option value="admin" >Colombo Fort</option>
-                        <option value="profileManage" >Kaluthara</option>
-                        <option value="locationfind">Kandy</option>
-                        <option value="travelGuide">Gampaha</option>
-                        <option value="reservation">Anuradhapura</option>
-                        <option value="payment">Mathara</option>							
+                        <option value="Colombo Fort" >Colombo Fort</option>
+                        <option value="Kaluthara" >Kaluthara</option>
+                        <option value="Kandy">Kandy</option>
+                        <option value="Gampaha">Gampaha</option>
+                        <option value="Anuradhapura">Anuradhapura</option>
+                        <option value="Mathara">Mathara</option>							
                     </select>
                 </div>
             </div>
@@ -84,9 +84,9 @@
                 <div class="col-lg-5" id="typeinemp">
                     <select required class="form-control" id="idDetails" name="SeatNo1" >
                         <option value="">Choose here</option>
-                        <option value="admin" >30</option>	
-                        <option value="admin" >38</option>	
-                        <option value="admin" >40</option>	
+                        <option value="30" >30</option>	
+                        <option value="38" >38</option>	
+                        <option value="40" >40</option>	
                     </select>
                 </div>
             </div>
@@ -96,9 +96,9 @@
                 <div class="col-lg-5" id="typeinemp">
                     <select required class="form-control" id="idDetails" name="SeatNo2" >
                         <option value="">Choose here</option>
-                        <option value="admin" >30</option>	
-                        <option value="admin" >38</option>	
-                        <option value="admin" >40</option>							
+                        <option value="30" >30</option>	
+                        <option value="38" >38</option>	
+                        <option value="40" >40</option>							
                     </select>
                 </div>
             </div>

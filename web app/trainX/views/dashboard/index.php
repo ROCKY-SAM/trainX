@@ -454,11 +454,13 @@
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Reservation</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
                 } else if (test == "reservation") {
-                    $('#usertype').append('Reservation');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reportreserve"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">account_box</i>Customer Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="emrgncy"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Seat Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="schedule"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Add Train Schedules</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Report</a>');
+                $('#usertype').append('Reservation');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="schedule"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">assignment</i>Train Schedules</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="seatReservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">people_outline</i>Seat Reservation</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="prices"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Prices view</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reportreserve"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">view_week</i>Generate Reports</a>');
+//                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="view"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>View Train Details</a>');
+                   
 
 
                 } else if (test == "payment") {
@@ -561,19 +563,36 @@ $('#location_identification').click(function (e2) {
                     $('#subloader2').load('reservationManagement/index', function () {
                     });
                 });
-                $('#emrgncy').click(function (e2) {
+                $('#seatReservation').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('reservationManagement/emergency', function () {
+                    $('#subloader2').load('reservationManagement/seatResc', function () {
                     });
                 });
+                
 
+                $('#prices').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('reservationManagement/pricesc', function () {
+                    });
+                });
+                
                 $('#schedule').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
                     $('#subloader2').load('reservationManagement/schedulec', function () {
                     });
                 });
+                
+                 $('#view').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('reservationManagement/viewTrainsc', function () {
+                    });
+                });
+                
+                
 
 
 //reservation ends
