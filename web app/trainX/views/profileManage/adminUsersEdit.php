@@ -5,7 +5,7 @@
         <legend>Search Employee</legend>
         <div class="form-group">
             <div class="col-lg-5">
-                <input type="text" class="form-control" id="searchInput" placeholder="filter">
+                <input type="text" class="form-control" id="searchInput" placeholder="filter" />
             </div>
         </div>
     </fieldset>
@@ -39,30 +39,31 @@
     </table>
 		
 		
+			
+<!-- Modal -->
+<div id="myModala" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
-		
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel"><legend>Edit Employee</legend></h4>
-
-            </div>
-   <form class="form-horizontal" id="updateAdmin_form" action="profileManage/updateEmployees" method="post" ">
-            <div class="modal-body">
-             
-                    <fieldset>
-
-
-
-
+    <!-- Modal content-->
+    <div class="modal-content">
+	
+	
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+         <h4 class="modal-title" id="myModalLabel"><legend>Edit Employee</legend></h4>
+      </div>
+	  
+	  
+	   <form class="form-horizontal" id="updateAdmin_form" action="profileManage/updateEmployees" method="post" >  
+	  
+      <div class="modal-body">
+                  <fieldset>
 
 
                         <div class="form-group">
                             <label for="managercode" class="col-lg-2 control-label">Employee Code</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" name="idnumber" id="idnumber"  readonly/>
+                                <input type="text" class="form-control" name="idnumber" id="idnumber"  readonly />
                             </div>
                         </div>
 
@@ -75,7 +76,7 @@
 
                             <div class="col-lg-4">
                                 <input type="text" class="form-control" name="fname" placeholder="" id="fname"
-                                       title="Use only letters for First Name"/>
+                                       pattern="[a-zA-Z]{1,20}" title="Use only letters for First Name" required />
                             </div>
 
                             <div class="col-lg-2 control-label">
@@ -84,7 +85,7 @@
 
                             <div class="col-lg-4">
                                 <input type="text" class="form-control" name="lname" placeholder="" id="lname"
-                                       title="Use only letters for Last Name" />
+                                       pattern="[a-zA-Z]{1,20}" title="Use only letters for Last Name" required />
                             </div>
 
                         </div>
@@ -100,7 +101,7 @@
 
                             <div class="col-lg-4">
                                 <input type="text" class="form-control" name="phoneNumber" placeholder="" id="phoneNumber"
-                                       title="Phone Number eg:0711234567 or 0112345678" />
+                                       pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" title="Phone Number eg:0711234567 or 0112345678" required />
                             </div>
 
                         </div>
@@ -123,29 +124,33 @@
                             </div>
 
                             <div class="col-lg-4">
-                                <input type="text" class="form-control" name="email" placeholder="" id="email"
-                                       title="Phone Number eg:0711234567 or 0112345678" />
+                                <input type="email" class="form-control" name="email" placeholder="" id="email"
+                                        required />
                             </div>
 
                         </div>
-						
+
+
+
+
                     </fieldset>
+      </div>
+	  
+	  
+	  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		 <button type="submit" class="btn btn-primary" >Save changes</button>
+      </div>
+    </form>  
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
 
-            </div>
-        </form>
+  </div>
 
-        </div>
-    </div>
+  </div>
 </div>
+	
 
-		
-		
-		
 		
 		<script type="text/javascript">
     $(document).ready(function () {
@@ -165,13 +170,10 @@
                 $("." + x + "").append('<td id="' + data[x].id + "-role" + '">' + data[x].role + '</td>');
                 $("." + x + "").append('<td id="' + data[x].id + "-fnamelname" + '">' + data[x].fname+" "+data[x].lname + '</td>');
                 $("." + x + "").append('<td id="' + data[x].id + "-email" + '">' + data[x].email  + '</td>');
-				
                 $("." + x + "").append('<td id="' + "-employee" + '">' + '</td>');
                 $("." + x + "").append('<td class="hide" id="' + data[x].idNumber + "-employeeID" + '">' + x + '</td>');
                 $("." + x + "").append('<td><div class="icon-preview"><a href="' + data[x].idNumber + '" class="edit"><i class="material-icons" >mode_edit</i></a></div></td>');
                 $("." + x + "").append('<td><div class="icon-preview"><a href="' + data[x].idNumber + '" class="remove"><i class="material-icons">delete</i></a></div></td>');
-               				
-
 				$("." + x + "").append('</tr>');
             }
 			
@@ -214,7 +216,7 @@
 			    $('.edit').click(function (e) {
                 var id = $(this).attr('href');
 
-                $('#myModal').appendTo("body").modal('show');
+               
                 setTimeout(function () {
                     var mycode = $('#' + id + '-employeeID').text();
 //assing values
@@ -225,7 +227,7 @@
                     $('#email').val(data[mycode].email);
                     $('#phoneNumber').val(data[mycode].phoneNumber);
                     $('#image').val(data[mycode].image);
-                   
+     $('#myModala').appendTo("body").modal();               
                 }, 250);
                 e.preventDefault();
             });
@@ -263,29 +265,33 @@
     });
   
   
-          $('#updateAdmin_form').submit(function (e) {
-      
-         e.preventDefault();
-        var form = $('#updateAdmin_form');
-        $.ajax({
-            type: form.attr('method'),
-            url: form.attr('action'),
-            data: form.serialize(),
-            success: function (data) {
-                $('#myModal').appendTo("body").modal('hide');
-         $('#subloader03').empty();
-           $('#subloader03').load('profileManage/adminUsersAdd').hide().fadeIn('slow');
-            }
-        });
-                                
-                                
-        });
+
   
   
   
   
     });
 	
+	
+	          $('#updateAdmin_form').submit(function (e) {
+      
+         e.preventDefault();
+     var form = $('#updateAdmin_form');
+     $.ajax({
+       type: form.attr('method'),
+         url: form.attr('action'),
+          data: form.serialize(),
+         success: function (data) {
+              $('#myModala').appendTo("body").hide('modal');
+			   $('#myModala').modal('hide');
+              $('#myModala').appendTo("body").hide('modal');
+         $('#subloader03').empty();
+           $('#subloader03').load('profileManage/adminUsersEdit').hide().fadeIn('slow');
+       }
+     });
+                                
+                                
+        });
 	
 	</script>
 	

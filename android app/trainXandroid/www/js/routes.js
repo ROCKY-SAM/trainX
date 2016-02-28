@@ -54,7 +54,15 @@ angular.module('app.routes', [])
                         }
                     })
 
-
+.state('tabsController.myAccountEdit', {
+                        url: '/myaccounteditpage',
+                        views: {
+                            'tab14': {
+                                templateUrl: 'templates/myAccountEdit.html',
+                                controller: 'myAccountEditCtrl'
+                            }
+                        }
+                    })
 
 
 
@@ -172,6 +180,6 @@ angular.module('app.routes', [])
 
 
             // if none of the above states are matched, use this as the fallback
-            $urlRouterProvider.otherwise('/page5');
+           // $urlRouterProvider.otherwise('/page5');
 
         });

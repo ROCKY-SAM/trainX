@@ -1,19 +1,19 @@
 <ion-view title="TrainXLife">
     <ion-content overflow-scroll="true" padding="true" style="background: url(img/6PhWTF0pQWekDubuuQ4q_1.jpg) no-repeat center;" scroll="false" class="has-header">
        <div id="centered">
-        <form class="list">
+        <form class="list" ng-submit="doLogin()">
            
   <label class="item item-input">
     <span class="input-label">Username</span>
-    <input type="text">
+    <input type="text" ng-model="loginData.username">
   </label>
   <label class="item item-input">
     <span class="input-label">Password</span>
-    <input type="password">
+    <input type="password" ng-model="loginData.passwordq">
   </label>
            
-         
-            <a href="#/page20/page21" class="button button-full button-positive">Log in</a>
+         <button class="button button-full button-positive" type="submit"> Log in</button>
+          <!--  <a href="#/page20/page21" class="button button-full button-positive">Log in</a>   -->
             <a href="#/page6" class="button button-positive button-clear button-block " style="color:white;letter-spacing: 1px;">Not a member?Sign up now.</a>
         </form>
 		
