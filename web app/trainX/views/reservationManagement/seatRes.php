@@ -1,58 +1,41 @@
 
  <br></br>
-<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
-    <div class="mdl-tabs__tab-bar">
-       
-           <!--  <a href="javascript:void(0)" class="btn btn-default btn-raised">Date</a>
-              <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-raised dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>-->
-             
-               <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Date
-  <span class="caret"></span></button>
-  
-              
-              <a href="javascript:void(0)" class="btn btn-default btn-raised">Train Name</a>
-              <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-raised dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
 
-              <ul class="dropdown-menu">
-                <li><a href="javascript:void(0)">Action</a></li>
-                <li><a href="javascript:void(0)">Another action</a></li>
-                <li><a href="javascript:void(0)">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="javascript:void(0)">Separated link</a></li>
-              </ul>
-            </div> 
-    
-   <!-- <br></br>
-    <center>
-     <a href="javascript:void(0)" class="btn btn-default btn-raised">Search</a>
-    </center>
-   -->
-  
+  		<form class="form-horizontal">
+    <fieldset>
+        <legend>Search By Train Name</legend>
+        <div class="form-group">
+            <div class="col-lg-5">
+                <input type="text" class="form-control" id="searchInput" placeholder="filter">
+            </div>
+        </div>
+    </fieldset>
+</form>
     
     
     <br><br>     </br> </br>
 			
 		<table class="table table-striped table-hover ">
-        <col style="width:10%">		
-        <col style="width:20%">
-        <col style="width:20%">
+        <col style="width:12%">		
+        <col style="width:12%">
+        <col style="width:12%">
         <col style="width:12%">
         <col style="width:12%">
         <col style="width:12%">
         <col style="width:12% ">
+        <col style="width:12% ">    
         <thead>
-            <tr>
-                <th></th>			
+            <tr>			
                 
-                <th>Train ID
-                    
-                </th>
+                <th>Train ID</th>
                 <th>Train Name</th>
                 <th>Date</th>
-                <th>Departure</th>
-                <th>Arrival</th>
-                <th>Total Seats</th>
-                <th>Reserved Seats</th>
+                <th>No of Reserved Seats 1st Class</th>
+                <th>Total No of Seats 1st Class</th>
+                <th>No of Reserved Seats 1st Class</th>
+                <th>Total No of Seats 2nd Class</th>
+                <th>Send Email</th>
+
                 
                 
             </tr>
@@ -68,17 +51,28 @@
 		
 		
 		
-		<!--<script type="text/javascript">
+	<script type="text/javascript">
     $(document).ready(function () {
 		
 		
-	
+		    $('#admin_list_manage').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader03').empty();
+        $('#subloader03').load('profileManage/adminUsersEdit', function () {
+        });
+    });
+				    $('#adminuser').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader03').empty();
+        $('#subloader03').load('profileManage/adminUsersAdd', function () {
+        });
+    });
 		
 		
 		
 		
 		
-        $.getJSON('profileManage/customer_list', function (data) {
+        $.getJSON('reservationManagement/select_seats', function (data) {
            
             var len = data.length;
 
@@ -88,16 +82,23 @@
 			    
 			   
                 $("tbody").append('<tr class="' + x + '" id="' + data[x].id + '">');
-                $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].customerId  + '</td>');				
-                $("." + x + "").append('<td id="' + data[x].id + "-role" + '">' + data[x].Nic + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-fnamelname" + '">' + data[x].email + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-email" + '">' + data[x].phoneNumber  + '</td>');
+                //$("." + x + "").append('<td id="' + data[x].id + "-image" + '">' +'<img src="/trainX/views/profileManage/propic/'+data[x].image+'"  class="img-responsive img-rounded">'  + '</td>');				
+                $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].tid  + '</td>');				
+                $("." + x + "").append('<td id="' + data[x].id + "-role" + '">' + data[x].tname + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].date  + '</td>');				
+                $("." + x + "").append('<td id="' + data[x].id + "-role" + '">' + data[x].reservedFirst + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].totalFirst  + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].reservedSecond  + '</td>');
+                $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].totalSecond  + '</td>');
+                
+                 $("." + x + "").append('<td><div class="icon-preview"><a href="' + data[x].tid + '" class="remove"> <i class="material-icons">mail_outline</i></a></div></td>');			
+                                                                                               
+
 				$("." + x + "").append('</tr>');
             }
   });
   
-  
-  	    $("#searchInput").keyup(function () {
+    $("#searchInput").keyup(function () {
         //split the current value of searchInput
         var data = this.value.split(" ");
         //create a jquery object of the rows
@@ -122,9 +123,11 @@
         //show the rows that match.
         .show();
     });
+ 
+ 
   
   
     });
 	
 	
-	</script> -->
+	</script>

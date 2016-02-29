@@ -458,14 +458,16 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Reservation</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
                 } else if (test == "reservation") {
-                    $('#usertype').append('Reservation');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reportreserve"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">account_box</i>Customer Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="emrgncy"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Seat Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="seat"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Admin Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Report</a>');
+                $('#usertype').append('Reservation');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="schedule"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">assignment</i>Train Schedules</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="seatReservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">people_outline</i>Seat Reservation</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="prices"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Prices view</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reportreserve"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">view_week</i>Generate Reports</a>');
+//                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="view"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>View Train Details</a>');
+                   
 
 
-                } else if (test == "payment") {
+                }  else if (test == "payment") {
                     $('#usertype').append('Payment Manager');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="notification_payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">mail_outline</i>Email Notification</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment_sms"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>SMS Notification</a>');
@@ -506,13 +508,7 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     $('#subloader2').load('profileManage/pages', function () {
                     });
                 });
-<<<<<<< HEAD
-                
-             
 
-=======
-			
->>>>>>> e6d0752ed128b1f7f848c04a5f6736b46fc2fe6b
 //profile management end
 
 //payment start
@@ -522,13 +518,10 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     $('#subloader2').load('paymentHandel/index', function () {
                     });
                 });
-<<<<<<< HEAD
-                
-                $('#payment_sms').click(function (e2) {
-=======
+
 
                 $('#payment_report').click(function (e2) {
->>>>>>> e6d0752ed128b1f7f848c04a5f6736b46fc2fe6b
+
                     e2.preventDefault();
                     $('#subloader2').empty();
                     $('#subloader2').load('paymentHandel/payment_sms', function () {
@@ -570,6 +563,7 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                 //Location Finder end
 
                 //travel guide start
+
 //reservation start
 
                 $('#reportreserve').click(function (e2) {
@@ -578,19 +572,36 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     $('#subloader2').load('reservationManagement/index', function () {
                     });
                 });
-                $('#emrgncy').click(function (e2) {
+                $('#seatReservation').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('reservationManagement/emergency', function () {
+                    $('#subloader2').load('reservationManagement/seatResc', function () {
                     });
                 });
+                
 
-                $('#seat').click(function (e2) {
+                $('#prices').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('reservationManagement/seatRes', function () {
+                    $('#subloader2').load('reservationManagement/pricesc', function () {
                     });
                 });
+                
+                $('#schedule').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('reservationManagement/schedulec', function () {
+                    });
+                });
+                
+                 $('#view').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('reservationManagement/viewTrainsc', function () {
+                    });
+                });
+                
+                
 
 
 //reservation ends
