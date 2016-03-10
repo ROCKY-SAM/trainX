@@ -49,7 +49,7 @@ class PaymentHandel_model extends Model {
     }
 
     public function customEmails() {
-        $inputemail="kavi.oshan8@gmail.com";
+        $inputemail = "kavi.oshan8@gmail.com";
         $subject = "TrainXLife Payment Information";
         $body = "Dear Sir,
 
@@ -100,4 +100,30 @@ class PaymentHandel_model extends Model {
         }
     }
 
+    public function select_payment_details() {
+        $results = $this->db->prepare("SELECT * FROM paymentdetails");
+        $results->execute();
+        return $results->fetchAll();
+    }
+    
+    
+     public function select_payment_finals() {
+        $results = $this->db->prepare("SELECT * FROM paymentdetails");
+        $results->execute();
+        return $results->fetchAll();
+    }
+    
+     public function selectAllRegtransactions() {
+        //$date = date("Y-m-d");  where date like'$date'
+        $sql = $this->db->prepare("select paymentID, cusName, reservedTrain, customerEmail from paymentdetails");
+        $sql->execute();
+        $Transactions = '';
+        while ($obj = $sql->fetch(PDO::FETCH_OBJ)) {
+
+            $Transactions[] = $obj;
+        }
+        return $Transactions;
+    }
+    
+    
 }
