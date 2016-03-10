@@ -99,11 +99,6 @@
                                 setInterval(GetClock, 1000);
                             }
                         </script>
-						
-						<a class="mdl-navigation__link" href="javascript:void(0)" id="message_page1"><i class="mdl-color-text--blue-grey-50 material-icons" role="presentation">forum</i><span class="badge"><li id="newmessagechatnumber"></li></span></a>
-						
-						
-						
                         <div id="clockbox" class="mdl-navigation__link"></div>
 
                     </div>
@@ -374,7 +369,7 @@
         <script type="text/javascript">
 
             $(document).ready(function () {
-window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber'); ?>');
+
                 var dbpassword;
                 var userpassword;
                 $.getJSON('profileManage/users_list', function (data) {
@@ -453,6 +448,7 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
                 } else if (test == "travelGuide") {
                     $('#usertype').append('Travel Guide');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="hi_bye"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">account_box</i> hi bye</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="Locations"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Locations</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Travel Guide</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Reservation</a>');
@@ -480,15 +476,10 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                 $('#message_page').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('profileManage/messagepage', function () {
+                    $('#subloader2').load('profileManage/index', function () {
                     });
                 });
-                $('#message_page1').click(function (e2) {
-                    e2.preventDefault();
-                    $('#subloader2').empty();
-                    $('#subloader2').load('profileManage/messagepage', function () {
-                    });
-                });
+
                 $('#customer_page').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
@@ -505,7 +496,7 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                 $('#user_report_page').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('profileManage/pages', function () {
+                    $('#subloader2').load('travelGuide/index', function () {
                     });
                 });
 
@@ -518,8 +509,12 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     $('#subloader2').load('paymentHandel/index', function () {
                     });
                 });
+<<<<<<< HEAD
+                
+=======
 
 
+>>>>>>> 0967d2e9378e39d2610425ac7140dbd9f30ab37d
                 $('#payment_report').click(function (e2) {
 
                     e2.preventDefault();
@@ -548,22 +543,46 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
 //payment end
 
 //Location Finder start
-                $('#clientInform').click(function (e2) {
+$('#clientInform').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
                     $('#subloader2').load('locationFinder/clientInform', function () {
                     });
                 });
-                $('#location_identification').click(function (e2) {
+$('#location_identification').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
                     $('#subloader2').load('locationFinder/location_identi', function () {
                     });
                 });
-                //Location Finder end
+ //Location Finder end
+ 
+ //travel guide start
 
+
+	                $('#hi_bye').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('travelGuide/index', function () {
+                    });
+                });
+
+					$('#Locations').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('travelGuide/Locations', function () {
+                    });
+                });
+
+
+
+//travel guide end
+
+<<<<<<< HEAD
+=======
                 //travel guide start
 
+>>>>>>> 0967d2e9378e39d2610425ac7140dbd9f30ab37d
 //reservation start
 
                 $('#reportreserve').click(function (e2) {
@@ -581,6 +600,15 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                 
 
                 $('#prices').click(function (e2) {
+<<<<<<< HEAD
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('reservationManagement/pricesc', function () {
+                    });
+                });
+                
+                $('#schedule').click(function (e2) {
+=======
                     e2.preventDefault();
                     $('#subloader2').empty();
                     $('#subloader2').load('reservationManagement/pricesc', function () {
@@ -607,22 +635,25 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
 //reservation ends
 
                 $('#Locations').click(function (e2) {
+>>>>>>> 0967d2e9378e39d2610425ac7140dbd9f30ab37d
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('travelGuide/Locations', function () {
+                    $('#subloader2').load('reservationManagement/schedulec', function () {
                     });
                 });
-
-
-
-//travel guide end
-
-                $('#reservation').click(function (e2) {
+                
+                 $('#view').click(function (e2) {
                     e2.preventDefault();
                     $('#subloader2').empty();
-                    $('#subloader2').load('reservation/index', function () {
+                    $('#subloader2').load('reservationManagement/viewTrainsc', function () {
                     });
                 });
+                
+                
+
+
+//reservation ends
+
 
 
                 $('.coloredit').click(function (e) {
@@ -736,43 +767,8 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
 
                 });
 
-				
-				
-					
-	var value1=null;
-	          $.getJSON('profileManage/message_list', function (data) {      value1 = data.length;	});
+            });
 
-	var value2=1;
-	
-	timeout();
-           
-	
-	//------------------------------------------		
-
-
-	function timeout() {
-        setTimeout(function () {
-
-          $.getJSON('profileManage/message_list', function (data) {
-
-
-               var len = data.length;
-              if (value1 < len) {
-					value2=parseInt(len - value1);
-					document.getElementById('newmessagechatnumber').innerHTML=value2;
-				}
-
-    });
-
-
-
-// create a recursive loop.
-            timeout();
-        }, 2000);
-    }
-			//--
-			
-			 });
         </script>
 
 

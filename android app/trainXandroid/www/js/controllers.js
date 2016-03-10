@@ -228,6 +228,8 @@ var timeYear =tim+" "+yearr+"-"+monthh+"-"+dateof;
 
 })
 
+<<<<<<< HEAD
+=======
 
 .controller('travelGuide', function($scope) {
 
@@ -240,3 +242,4 @@ var timeYear =tim+" "+yearr+"-"+monthh+"-"+dateof;
 .controller('TrainSchedules', function($scope) {
 
 })  
+>>>>>>> 687645207b89caa9b1e14a2f06d344ff9239adad
