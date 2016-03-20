@@ -1,3 +1,11 @@
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+        <a href="javascript:void(0)" id="admin_list_manage" class="btn btn-raised btn-default">Admin List Manage</a>
+        &nbsp;
+        <a href="javascript:void(0)" id="adminuser" class="btn btn-raised btn-default">Admin Users Add</a>
+    </div>
+</div>
+
 </br></br>
 
 

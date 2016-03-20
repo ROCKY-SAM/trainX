@@ -1,5 +1,5 @@
 <?php
-
+	header('Access-Control-Allow-Origin: *');
 class PaymentHandel extends Controller {
 
     function __construct() {
@@ -20,15 +20,6 @@ class PaymentHandel extends Controller {
 
     function alertoffers() {
         $this->view->render('paymentHandel/alertoffers');
-    }
-
-    public function sendEmails() {
-        $inputemail = $_POST['inputEmaill'];
-        $inputSubject = $_POST['inputSubjectl'];
-        $body = $_POST['bodyl'];
-
-        $sendtomodel = new PaymentHandel_model();
-        $sendtomodel->sendEmail($inputemail, $inputSubject, $body);
     }
 
     function customEmail() {
@@ -63,18 +54,58 @@ class PaymentHandel extends Controller {
         $this->view->render('paymentHandel/reports');
     }
 
-       public function view_Report_detailed() {
+    public function view_Report_detailed() {
         $model = new PaymentHandel_model();
         echo json_encode($model->select_payment_details());
     }
-    
-      public function view_payments() {
-       $model = new PaymentHandel_model();
+
+    public function view_trains_payment() {
+        $model = new PaymentHandel_model();
+        echo json_encode($model->view_trains_payment());
+    }
+
+    public function view_payments() {
+        $model = new PaymentHandel_model();
         echo json_encode($model->select_payment_finals());
     }
 
-      public function RegularAlert() {
-        $model = new PaymentHandel_model();
-        $sendtomodel = $model->selectAllRegtransactions();
+    public function emailpayments() {
+//        $to = $_POST['customerEmail'];
+//        $subject = $_POST['subject'];
+//        $txt = $_POST['messagebody'];
+//        $txt = wordwrap($txt, 70);
+        
+        $toemail = $_GET['customerEmail'];
+        $tosubject = $_GET['subject'];
+        $tomessage = $_GET['messagebody'];
+        
+        echo $toemail;
+        echo $tosubject;
+        echo $tomessage;
+        
+        
+        $sendtomodel = new PaymentHandel_model();
+        $sendtomodel->SendMailalerts($toemail,$tosubject,$tomessage);
     }
+//android
+    public function addpayment() {
+
+        $paymentID = $_GET['paymentID'];
+        $custID = $_GET['custID'];
+        $cusName = $_GET['cusName'];
+        $trainID = $_GET['trainID'];
+        $reservedTrain = $_GET['reservedTrain'];
+        $Depature = $_GET['Depature'];
+        $classof = $_GET['classof'];
+        $ticketPrice = $_GET['ticketPrice'];
+        $paymentDate = $_GET['paymentDate'];
+        $TelephoneNumber = $_GET['TelephoneNumber'];
+        $customerEmail = $_GET['customerEmail'];
+
+
+        $sendtomodel = new PaymentHandel_model();
+        $sendtomodel->addbooking($paymentID,$custID,$cusName,$trainID,$reservedTrain,$Depature,$classof,$ticketPrice,$paymentDate,$TelephoneNumber,$customerEmail);
+		
+		        
+    }	
 }

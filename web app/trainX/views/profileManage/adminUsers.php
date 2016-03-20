@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div id="subloader03">
+<!--<div id="subloader03">   -->
 
     </br></br>
 
@@ -45,7 +45,7 @@
 
 
 
-</div>
+<!-- </div>  -->
 
 
 
@@ -55,14 +55,14 @@
 
         $('#admin_list_manage').click(function (e2) {
             e2.preventDefault();
-            $('#subloader03').empty();
-            $('#subloader03').load('profileManage/adminUsersEdit', function () {
+            $('#subloader2').empty();
+            $('#subloader2').load('profileManage/adminUsersEdit', function () {
             });
         });
         $('#adminuser').click(function (e2) {
             e2.preventDefault();
-            $('#subloader03').empty();
-            $('#subloader03').load('profileManage/adminUsersAdd', function () {
+            $('#subloader2').empty();
+            $('#subloader2').load('profileManage/adminUsersAdd', function () {
             });
         });
 

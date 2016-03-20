@@ -1,0 +1,13 @@
+<ion-view title="<center>My Tickets</center>">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <h5>From - To : {{trainstartend}}</h5>
+        <h5>train ID : {{trainNumber}}</h5>
+		<h5>Date : {{dateoftrain}}</h5>
+		<h5>Time : {{starttimeoftrain}}</h5>
+		<h5>Class : {{trainclass}}</h5>
+		<h5>Seat Price : {{seatprice}}</h5>	
+		<h5>Seat Numbers : {{seatnumbers}}</h5>
+	
+	        <button class="button button-full button-clear button-positive" ng-click="openInAppBrowser()">Track My train</button>
+    </ion-content>
+</ion-view>

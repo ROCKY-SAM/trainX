@@ -1,5 +1,17 @@
- <br><br>     </br> </br>
- <div id="subloader03">
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+        <a href="javascript:void(0)" id="addTrains" class="btn btn-raised btn-default">Add Train Schedules</a>
+        <a href="javascript:void(0)" id="updateTrains" class="btn btn-raised btn-default">Update Train Schedules</a>
+        <a href="javascript:void(0)" id="viewTrainSchedules" class="btn btn-raised btn-default">View Train Schedules</a>
+
+    </div>
+</div>
+
+
+
+
+<br><br>
+
 			
 		<table class="table table-striped table-hover ">
         <col style="width:10%">		
@@ -38,8 +50,8 @@
 
             </div>
             
-            <br> </br>
-   <form class="form-horizontal" id="updateTrains" action="ReservationManagement/updateSchedules" method="post" ">
+            <br>
+   <form class="form-horizontal" id="updateTrainsd" action="ReservationManagement/updateSchedules" method="post">
             <div class="modal-body">
              
                     <fieldset>
@@ -113,24 +125,7 @@
 		
 	<script type="text/javascript">
     $(document).ready(function () {
-		
-	/* 	
-		    $('#admin_list_manage').click(function (e2) {
-        e2.preventDefault();
-        $('#subloader03').empty();
-        $('#subloader03').load('profileManage/adminUsersEdit', function () {
-        });
-    });
-				    $('#adminuser').click(function (e2) {
-        e2.preventDefault();
-        $('#subloader03').empty();
-        $('#subloader03').load('profileManage/adminUsersAdd', function () {
-        });
-    }); */
-		
-		
-		
-		
+
 		
         $.getJSON('reservationManagement/train_list', function (data) {
            
@@ -181,8 +176,8 @@
                             data: {idValue: id},
                             success: function (data) {
                                 swal("Deleted!", "Data has been deleted!", "success");
-                                $('#subloader03').empty();
-                                $('#subloader03').load('reservationManagement/priceViewc').hide().fadeIn('slow');
+                                $('#subloader2').empty();
+                                $('#subloader2').load('reservationManagement/updateTrainsc').hide().fadeIn('slow');
 
                             }
                         });
@@ -200,7 +195,7 @@
 	$('.edit').click(function (e) {
                 var id = $(this).attr('href');
 
-                $('#myModal').appendTo("body").modal('show');
+                
                 setTimeout(function () {
                     var mycode = $('#' + id + '-trainID').text();
 //assing values
@@ -211,34 +206,35 @@
                     $('#timeStarting').val(data[mycode].timeStarting);
                     $('#TimeEnding').val(data[mycode].TimeEnding);
                     /* $('#image').val(data[mycode].image); */
+					$('#myModal').appendTo("body").modal('show');
                    
                 }, 250);
                 e.preventDefault();
             });
 			
 			
-			$('#updateTrains').submit(function (e) {
-      
+	
+			
+			
+  });
+  
+  		$('#updateTrainsd').submit(function (e) {
+
          e.preventDefault();
-        var form = $('#updateTrains');
+        var form = $('#updateTrainsd');
         $.ajax({
             type: form.attr('method'),
             url: form.attr('action'),
             data: form.serialize(),
             success: function (data) {
                 $('#myModal').appendTo("body").modal('hide');
-         $('#subloader03').empty();
-           $('#subloader03').load('reservationManagement/updateTrains').hide().fadeIn('slow');
+         $('#subloader2').empty();
+           $('#subloader2').load('reservationManagement/updateTrainsc').hide().fadeIn('slow');
             }
         });
                                 
                                 
         });
-			
-			
-  });
-  
-  
   
   
     
@@ -246,6 +242,28 @@
 
 </script>
 
-<div id="subloader22">
+<script type="text/javascript">
+
+
+   $('#addTrains').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('reservationManagement/addTrainsc', function () {
+        });
+    });
     
-</div>
+     $('#updateTrains').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('reservationManagement/updateTrainsc', function () {
+        });
+    });
+    
+    $('#viewTrainSchedules').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('reservationManagement/viewTrainSchedulesc', function () {
+        });
+    });
+
+</script> 

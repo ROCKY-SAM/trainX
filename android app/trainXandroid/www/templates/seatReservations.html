@@ -1,16 +1,56 @@
-<ion-view title="TrainX Starter">
+<ion-view title="<center>Seat Reservations</center>" cache-view="false">
 
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <ion-list>
-            <ion-item class="item-divider">Seat Reservations</ion-item>
-        </ion-list>
+    <ion-content scroll="true" padding="true" class="has-header">
+            <label class="item item-select">
+                <span class="input-label">Class</span>
+                <select ng-model="mySelect" ng-change="showSelectValue(mySelect)">
+                    <option></option>
+                    <option>1st Class</option>
+                    <option>2nd Class</option>
+                </select>
+            </label>
         <div class="card">
             <div class="item item-text-wrap">
                 Select Your Seats.
             </div>
-        </div>
 
-        <div class="spacer" style="width: 283px; height: 348px;"></div>
+		<div>
+		
+		  
+			  <div class="row">
+			  <div class="col" ></div>			  
+ 			  <div class="col" >&ensp;<span class="badge badge-light">A</div>
+			  <div class="col" >&ensp;<span class="badge badge-light">B</div>
+			  <div class="col" ></div>
+			  <div class="col" >&ensp;<span class="badge badge-light">C</div>
+			  <div class="col" >&ensp;<span class="badge badge-light">D</div>
+			  <div class="col" ></div>
+			  </div>
+
+</div>			
+
+
+		<div ng-repeat="x in valuevalue">
+		
+		  
+			  <div class="row">
+			  <div class="col" >&ensp;<span class="badge badge-light">{{x.id}}</div>			  
+	<!--		  <div class="col" ng-click="onTap('seat1',x.seat1)"><img src="{{ x.seat1 == '1' && lol || pol}}" id="myImg1+x.id"/></div>          --->
+			  <div class="col" ng-click="onTap('1',x.id,x.seat1)"><img src="{{ x.seat1 == '1' && lol || pol}}"  ng-attr-id="{{ 'myImg1' + x.id }}"/></div>
+			  <div class="col" ng-click="onTap('2',x.id,x.seat2)"><img src="{{ x.seat2 == '1' && lol || pol}}"  ng-attr-id="{{ 'myImg2' + x.id }}"/></div>
+			  <div class="col" ></span></div>
+			  <div class="col" ng-click="onTap('3',x.id,x.seat3)"><img src="{{ x.seat3 == '1' && lol || pol}}"  ng-attr-id="{{ 'myImg3' + x.id }}"/></div>
+			  <div class="col" ng-click="onTap('4',x.id,x.seat4)"><img src="{{ x.seat4 == '1' && lol || pol}}"  ng-attr-id="{{ 'myImg4' + x.id }}"/></div>
+			  <div class="col" > </div>
+			  </div>
+
+</div>
+			  </div>
+
+	
+
+
+  
         <a href="#page20/page57" class="button button-positive button-block ">Continue</a>
 
     </ion-content>

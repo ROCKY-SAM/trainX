@@ -1,5 +1,5 @@
 <ion-view title="Ticket Reservation">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <ion-content overflow-scroll="true" padding="true" class="has-header" scroll="true">
         <form class="list">
             <label class="item item-select">
                 <span class="input-label">From</span>
@@ -11,15 +11,12 @@
                 <span class="input-label">To</span>
                 <select></select>
             </label>
-            <ion-checkbox>With Return</ion-checkbox>
+           
             <label class="item item-input">
                 <span class="input-label">Reserving Date</span>
                 <input type="date" placeholder="">
             </label>
-            <label class="item item-input">
-                <span class="input-label">Return Date</span>
-                <input type="date" placeholder="">
-            </label>
+
             <label class="item item-select">
                 <span class="input-label">Class</span>
                 <select>
@@ -29,6 +26,15 @@
                 </select>
             </label>
         </form>
+		
+				<!-- 		<div ng-controller="Test">
+      <p >{{selectedItem}}</p>
+      <select ng-model="selectedItem">
+        <option ng-repeat="item in names" value="{{item.id}}">{{item.food}}</option>
+      </select>
+        <a ui-sref="page2" ng-click="samfun(selectedItem)" class="button button-stable button-block ">Tap me!</a>
+	  
+    </div>  -->
         <a href="#/page20/page30" class="button button-positive button-block ">Find My Train</a>
     </ion-content>
 </ion-view>

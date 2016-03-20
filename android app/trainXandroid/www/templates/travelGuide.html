@@ -1,25 +1,51 @@
-<ion-view title="Location List">
+<ion-view title="<center>Location List</center>" cache-view="false">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
-        
-      <div class="list">
+        <form name="testForm" >
+<div class="list list-inset">
+  <label class="item item-input">
+    <i class="icon ion-search placeholder-icon"></i>
+    <input type="text" ng-model="datareloadserach" name="searchvalue" ng-required="true" ng-change="reloaddata(datareloadserach)" id="wordofthe" placeholder="Search">
+  </label>
+</div>
 
-    <a class="item item-thumbnail-left" href="#/page20/page31">
-      <img src="cover.jpg">
-      <h2>Anuradhapura</h2>
-      <p>........</p>
-    </a>
-	<a class="item item-thumbnail-left" href="#">
-      <img src="cover.jpg">
-      <h2>Arugambay</h2>
-      <p>........</p>
-    </a>
-	<a class="item item-thumbnail-left" href="#">
-      <img src="cover.jpg">
-      <h2>Bentota</h2>
-      <p>........</p>
-    </a>
-	</div>
+	<!--	<div class="list" id="loadlocation" >
+
+
 	
+	 
+	</div>   -->
+	
+
+<div  ng-controller="travelGuide"> 
+  <ul >
+
+
+    <li ng-show="testForm.searchvalue.$error.required" ng-repeat="x in names" ng-click="getidoflocation(x.id)">
+  
+	<a  class="item item-thumbnail-left" href="#/page20/page31"  >
+	<img src="http://{{ipaddressof}}/trainX/views/travelGuide/places/{{x.Photo}}" >
+	<h2>{{x.Locations}}</h2>
+	<h3>Nearset station {{x.nearestRS}}</h3></a>  
+	  
+    </li>
+	
+	    <li ng-hide="testForm.searchvalue.$error.required" ng-repeat="x in namesq" ng-click="getidoflocation(x.id)">
+  
+	<a  class="item item-thumbnail-left" href="#/page20/page31"  >
+	<img src="http://{{ipaddressof}}/trainX/views/travelGuide/places/{{x.Photo}}" >
+	<h2>{{x.Locations}}</h2>
+	<h3>Nearset station {{x.nearestRS}}</h3></a>  
+	  
+    </li>
+	
+	
+	</ul>
+
+	</div>
+</form>
+
+
+
 
     </ion-content>
 </ion-view>

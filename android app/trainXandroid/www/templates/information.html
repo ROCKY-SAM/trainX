@@ -1,6 +1,8 @@
 <ion-view title="<center>Information</center>">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
 	
+	
+	<div id="customsize" style="height:50%;" overflow-scroll="true">
  <div class="item item-divider">
     Contact Us
   </div>
@@ -10,7 +12,8 @@
 	
  <div class="item item-divider">
     Or Message Us
-  </div>	
+  </div> 
+  </div>
   <br>
 
 	<div id="table-wrapper" >
@@ -41,11 +44,11 @@
       <input
               ng-model="chat.message"
               dir="auto"
-              type="text"  placeholder="Type to compose" style="font-size:170%"/>
+              type="text"  placeholder="Type to compose" style="font-size:100%"/>
     </label>
  
     <span ng-if="chat.message.length > 0">
-      <button ng-click="chatsendMessage()" class="button button-clear button-positive" ><i class="ion-paper-airplane" style="font-size:170%"></i></button>
+      <button ng-click="chatsendMessage()" class="button button-clear button-positive" ><i class="ion-paper-airplane" style="font-size:100%"></i></button>
     </span>
     <span ng-if="!chat.message || chat.message.length === 0">
      <button class="button button-clear button-assertive" style="font-size:170%" disabled>Send</button>

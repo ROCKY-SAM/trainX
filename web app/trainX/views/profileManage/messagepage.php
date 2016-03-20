@@ -177,6 +177,7 @@
     .message-container > .message-north > .message-user-list a.highlight .user-title,
     .message-container > .message-north > .message-user-list a.highlight .user-desc {
         font-weight: bold;
+		
     }
 
     .message-container > .message-north > .message-thread {

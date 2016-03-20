@@ -1,35 +1,79 @@
 <ion-view title="<center>My Account Edit</center>">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <ion-content overflow-scroll="true" padding="true" class="has-header" scroll="true">
 	
 	
 	
 	
-	
+	<form name="testForm" >
 	<div class="list">
-  <label class="item item-input item-stacked-label">
+	
+
+<div ng-controller="memebereditdetail">
+
+    <label class="item item-input item-stacked-label">
     <span class="input-label">First Name</span>
-    <input type="text" placeholder="John">
-  </label>
-  <label class="item item-input item-stacked-label">
+    <input type="text" ng-model="fnameaccount" ng-change="changefname()" id="fCode" name="firstname" ng-required="true" />
+  <!--   <p style="color:red;" ng-show="testForm.firstname.$error.required"><i class="ion-information-circled"></i>Firstname is required</p> -->
+	<p style="color:red;" ng-show="changefname()"><i class="ion-information-circled "></i>Firstname is can only have letters</p>
+    </label>
+   
+    <label class="item item-input item-stacked-label">
     <span class="input-label">Last Name</span>
-    <input type="text" placeholder="Suhr">
-  </label>
-  <label class="item item-input item-stacked-label">
+    <input type="text" ng-model="lnameaccount" ng-change="changelname()" id="lCode" name="lastname" ng-required="true" />
+  <!--  <p style="color:red;" ng-show="testForm.lastname.$error.required"><i class="ion-information-circled"></i>Lastname is required</p>  -->
+	<p style="color:red;" ng-show="changelname()"><i class="ion-information-circled"></i>Lastname is can only have letters</p>
+    </label>  
+   
+ 
+
+        <label class="item item-input item-stacked-label">
     <span class="input-label">NIC</span>
-    <input type="text" placeholder="john@suhr.com">
-  </label>
-  <label class="item item-input item-stacked-label">
+    <input type="text" ng-model="nicaccount" ng-change="changenic()" id="ncode" name="nicc" ng-required="true">
+ <!--	<p style="color:red;" ng-show="testForm.nicc.$error.required"><i class="ion-information-circled"></i>NIC is required</p> -->
+	<p style="color:red;" ng-show="changenic()"><i class="ion-information-circled"></i>NIC format is not correct</p>
+  </label> 
+  
+   <label class="item item-input item-stacked-label">
     <span class="input-label">Phone</span>
-    <input type="text" placeholder="john@suhr.com">
+    <input type="number"  ng-model="phoneaccount" ng-change="changephone()" id="pcode" name="phonee" ng-required="true" >
+ <!--	<p style="color:red;" ng-show="testForm.phonee.$error.required"><i class="ion-information-circled"></i>Phone number is required</p> -->
+	 <p style="color:red;" ng-show="changephone()"><i class="ion-information-circled"></i>Phone number is not in correct format</p>
   </label> 
-  <label class="item item-input item-stacked-label">
+  
+   <label class="item item-input item-stacked-label">
     <span class="input-label">Email</span>
-    <input type="text" placeholder="john@suhr.com">
-  </label>
-  <label class="item item-input item-stacked-label">
-    <span class="input-label">Password</span>
-    <input type="text" placeholder="john@suhr.com">
-  </label> 
+    <input type="email" ng-model="email.account" id="emails" name="emaill" ng-required="true" >
+ <!--	<p style="color:red;" ng-show="testForm.emaill.$error.required"><i class="ion-information-circled"></i>Email is required</p> -->
+	<p style="color:red;" ng-show="testForm.emaill.$error.email"><i class="ion-information-circled"></i>Email is required</p>
+	</label>
+  
+  
+  <button class="button button-full button-positive" ng-click="changepasswordabc()">
+  Change Password
+</button>
+
+
+<div ng-show="changepasswordabcd">
+    <label class="item item-input item-stacked-label">
+    <span class="input-label">Current password</span>
+    <input type="text" ng-model="cpassword" ng-change="cpasswordcheck()" id="cpasswordcode"  />
+	<p style="color:red;" ng-show="cpasswordcheck()"><i class="ion-information-circled"></i>Current Password is Wrong</p>
+    </label>
+   
+    <label class="item item-input item-stacked-label">
+    <span class="input-label">New password</span>
+    <input type="text" ng-model="npassword" ng-change="" id="newpasscode" "  />
+    </label>  
+
+    <label class="item item-input item-stacked-label">
+    <span class="input-label">Confirm New password</span>
+    <input type="text" ng-model="cnpassword" ng-change="newpasswordcheck()" id="cnpasswordcode" />
+	<p style="color:red;" ng-show="newpasswordcheck()"><i class="ion-information-circled"></i>New password not match</p>
+    </label>  
+
+
+</div>	
+</div>		
  
  <div class="row">
  <a class="button button-outline button-assertive" style="width: 45%;" href="#/page20/page22">
@@ -37,15 +81,18 @@
 </a>
  <div style="width: 10%;"></div>
 
- <button class="button button-outline button-positive" style="width: 45%;" >
+ <button class="button button-outline button-positive" style="width: 45%;" ng-click="submitform()">
   Save
 </button>
  </div>
  
 </div>
+	</form>
+
+
 	
 	
-	
+		
 	
 	
 	

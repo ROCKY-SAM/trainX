@@ -36,7 +36,7 @@ class ProfileManage_model extends Model {
 
     public function delete_employee($empid) {
 
-        $sql = $this->db->prepare("DELETE FROM users WHERE idNumber	=:empid");
+        $sql = $this->db->prepare("DELETE FROM users WHERE idNumber =:empid");
 
 
         $sql->execute(array(
@@ -211,5 +211,74 @@ $messageTexta</br>
         $results->execute();
         return $results->fetchAll();
     }
+	
+	
+    public function update_customer($idnumber, $fname, $lname,$email,$niccode, $phoneNumber,$passwordof){
 
+        $sql = $this->db->prepare("UPDATE customers SET customerfname=?,customerlname=?,Nic=?,email=?,phoneNumber=?,Password=? WHERE customerId =? LIMIT 1");
+        $sql->bindValue(1, $fname);
+        $sql->bindValue(2, $lname);
+        $sql->bindValue(3, $niccode);
+        $sql->bindValue(4, $email);
+        $sql->bindValue(5, $phoneNumber);
+        $sql->bindValue(6, $passwordof);
+        $sql->bindValue(7, $idnumber);
+        $sql->execute();
+		
+		
+    }
+	
+	
+
+
+	//android
+	
+	    	    public function select_alltrainsmodal($valueat) {
+        $results = $this->db->prepare("SELECT * FROM train_schedules where trackName='$valueat'");
+       $results->execute();
+       return $results->fetchAll();
+	  
+    }
+	
+	    	    public function select_trainsmodal($valueat1) {
+        $results = $this->db->prepare("SELECT * FROM train_schedules where tid='$valueat1'");
+       $results->execute();
+       return $results->fetchAll();
+	  
+    }
+	
+	
+    	    	    public function select_booknumbers($valueat) {
+        $results = $this->db->prepare("SELECT * FROM booking where trainid='$valueat'");
+       $results->execute();
+       return $results->fetchAll();
+	  
+    }
+
+        
+            public function add_customer($code, $fname, $lname, $nic, $pcode, $email, $password) {
+ //       echo $code, $fname, $lname, $nic, $pcode, $email, $password;
+ 
+ 
+         $results = $this->db->prepare("SELECT * FROM customers where email='$email'");
+       $results->execute();
+       
+if($results->fetch(PDO::FETCH_OBJ) > "0")
+{
+echo "Sorry email already exsist";
 }
+else{
+	
+	
+	 $adder = $this->db->prepare("INSERT INTO customers (customerId,customerfname,customerlname,Nic,phoneNumber,email,Password)
+    VALUES(:customerId,:customerfname,:customerlname,:Nic,:phoneNumber,:email,:Password)");
+
+      $adder->execute(array(':customerId' => $code, ':customerfname' => $fname, ':customerlname' => $lname, ':Nic' => $nic, ':phoneNumber' => $pcode, ':email' => $email, ':Password' => $password));
+     //   echo "done";
+	echo "Data have begin added to Database";
+}
+
+    }
+    
+
+ }

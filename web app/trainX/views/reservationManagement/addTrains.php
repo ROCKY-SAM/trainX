@@ -1,3 +1,38 @@
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+        <a href="javascript:void(0)" id="addTrains" class="btn btn-raised btn-default">Add Train Schedules</a>
+        <a href="javascript:void(0)" id="updateTrains" class="btn btn-raised btn-default">Update Train Schedules</a>
+        <a href="javascript:void(0)" id="viewTrainSchedules" class="btn btn-raised btn-default">View Train Schedules</a>
+
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+
+   $('#addTrains').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('reservationManagement/addTrainsc', function () {
+        });
+    });
+    
+     $('#updateTrains').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('reservationManagement/updateTrainsc', function () {
+        });
+    });
+    
+    $('#viewTrainSchedules').click(function (e2) {
+        e2.preventDefault();
+        $('#subloader2').empty();
+        $('#subloader2').load('reservationManagement/viewTrainSchedulesc', function () {
+        });
+    });
+
+</script>
 </br></br>
 
 
@@ -23,12 +58,41 @@
                 </div>
                 <div class="col-lg-5">
                     <input type="text" class="form-control" name="trainID" placeholder="" 
-                            required/>
+                           required/>
                 </div>
             </div>
 
 
-            <!-- emp type -->
+            <div class="form-group">
+                <label for="emptype" class="col-lg-2 control-label" >Train Type</label>
+                <div class="col-lg-5" id="typeinemp">
+                    <select required class="form-control" id="idDetails" name="trainType" >
+
+                        <option value="">Choose here</option>
+                        <option value="Intercity Express Passanger Train Air Conditioned" >Intercity Express Passanger Train Air Conditioned</option>
+                        <option value="Intercity Express Passanger Train Non AC" >Intercity Express Passanger Train Non AC</option>
+
+                    </select>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="emptype" class="col-lg-2 control-label" >Available Class Types</label>
+                <div class="col-lg-5" id="typeinemp">
+                    <select required class="form-control" id="idDetails" name="classavailable" >
+
+                        <option value="">Choose here</option>
+                        <option value="1st class only" >1st class only</option>
+                        <option value="2nd class only" >2nd class only</option>
+                        <option value="1st & 2nd classes" >1st & 2nd classes</option>
+
+                    </select>
+
+                </div>
+            </div>
+
             <div class="form-group">
                 <label for="emptype" class="col-lg-2 control-label" >Start Location</label>
                 <div class="col-lg-5" id="typeinemp">
@@ -77,16 +141,20 @@
                 </div>
             </div>
 
+      
+
+
             <br> </br>
 
             <div class="form-group">
                 <label for="emptype" class="col-lg-2 control-label" >1st Class NO. Of Seats</label>
                 <div class="col-lg-5" id="typeinemp">
-                    <select required class="form-control" id="idDetails" name="SeatNo1" >
+                    <select required class="form-control"  name="SeatNo1" >
                         <option value="">Choose here</option>
                         <option value="30" >30</option>	
                         <option value="38" >38</option>	
                         <option value="40" >40</option>	
+                        <option value="unavailable" >unavailable</option>	
                     </select>
                 </div>
             </div>
@@ -94,69 +162,41 @@
             <div class="form-group">
                 <label for="emptype" class="col-lg-2 control-label" >2nd Class NO. Of Seats</label>
                 <div class="col-lg-5" id="typeinemp">
-                    <select required class="form-control" id="idDetails" name="SeatNo2" >
+                    <select required class="form-control"  name="SeatNo2" >
                         <option value="">Choose here</option>
                         <option value="30" >30</option>	
                         <option value="38" >38</option>	
-                        <option value="40" >40</option>							
+                        <option value="40" >40</option>	
+                        <option value="unavailable" >unavailable</option>
                     </select>
                 </div>
             </div>
 
 
             <br> </br>
-          
 
-            <div class="form-group">
-                <label for="emptype" class="col-lg-2 control-label" > 1st Class Seat Price</label>
 
-            </div>
-            <div class="form-group">
+             <div class="form-group">
 
                 <div class="col-lg-2 control-label">
-                    <label for="fnameManager"> Adult</label>
+                    <label for="fnameManager">1st Class Ticket Price</label>
                 </div>
-
-                <div class="col-lg-2">
-                    <input type="text" class="form-control" name="adult01" placeholder="" id="fname"
-                           title="Use only letters for First Name"/>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control" name="firstclassprice" placeholder="" 
+                           required/>
                 </div>
-
-                <div class="col-lg-2 control-label">
-                    <label for="lnameManager">Child</label>
-                </div>
-
-                <div class="col-lg-2">
-                    <input type="text" class="form-control" name="child01" placeholder="" id="lname"
-                           title="Use only letters for Last Name" />
-                </div>
-
             </div>
 
 
-            <div class="form-group">
-                <label for="emptype" class="col-lg-2 control-label" > 2nd Class Seat Price</label>
-            </div>
-            <div class="form-group">
+              <div class="form-group">
 
                 <div class="col-lg-2 control-label">
-                    <label for="fnameManager"> Adult</label>
+                    <label for="fnameManager">2nd Class Ticket Price</label>
                 </div>
-
-                <div class="col-lg-2">
-                    <input type="text" class="form-control" name="adult02" placeholder="" id="fname"
-                           title="Use only letters for First Name"/>
+                <div class="col-lg-5">
+                    <input type="text" class="form-control" name="secondclassprice" placeholder="" 
+                           required/>
                 </div>
-
-                <div class="col-lg-2 control-label">
-                    <label for="lnameManager">Child</label>
-                </div>
-
-                <div class="col-lg-2">
-                    <input type="text" class="form-control" name="child02" placeholder="" id="lname"
-                           title="Use only letters for Last Name" />
-                </div>
-
             </div>
 
 
@@ -170,15 +210,19 @@
                 </div>
             </div>
         </fieldset>
+        
     </form>
 
+
+   
 
 
 
     <script>
+        
         $('#insertTrains').submit(function (e) {
 
-
+           
             e.preventDefault();
             swal({title: "Wait", text: "Processing Please Wait", timer: 4000, showConfirmButton: false});
             var form = $('#insertTrains');
@@ -187,16 +231,35 @@
                 url: form.attr('action'),
                 data: form.serialize(),
                 success: function (data) {
+                     
                     swal("Trains Successfully Added!", "Click Ok To Continue", "success");
                     console.log(data);
-                    $('#subloader03').empty();
-                    $('#subloader03').load('reservationManagement/addTrains').hide().fadeIn('slow');
+                    $('#subloader2').empty();
+                    $('#subloader2').load('reservationManagement/addTrainsc').hide().fadeIn('slow');
                 }
             });
 
 
         });
 
+
+//        $('#updatestations').submit(function (e) {
+//
+//            e.preventDefault();
+//            var form = $('#updateTrains');
+//            $.ajax({
+//                type: form.attr('method'),
+//                url: form.attr('action'),
+//                data: form.serialize(),
+//                success: function (data) {
+//                    $('#myModal').appendTo("body").modal('hide');
+//                    $('#subloader2').empty();
+//                    $('#subloader2').load('reservationManagement/updateTrains').hide().fadeIn('slow');
+//                }
+//            });
+//
+//
+//        });
+        
+           
     </script>
-    
-    

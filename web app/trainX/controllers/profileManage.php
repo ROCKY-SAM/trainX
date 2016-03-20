@@ -1,6 +1,7 @@
 <?php
-
+	header('Access-Control-Allow-Origin: *');
 class ProfileManage extends Controller {
+
 
     function __construct() {
         parent::__construct();
@@ -148,7 +149,45 @@ class ProfileManage extends Controller {
 
     public function message_list() {
         $model = new ProfileManage_model();
+		
         echo json_encode($model->select_all_message());
     }
 
+    public function updateCustomers() {
+
+
+        $idnumber = $_GET['id'];
+        $fname = $_GET['fname'];
+        $lname = $_GET['lname'];
+        $niccode = $_GET['ncode'];
+	 $phoneNumber = $_GET['pcode'];
+        $email = $_GET['email'];
+        $passwordof = $_GET['passwordofc'];
+
+
+
+        $sendtomodel = new ProfileManage_model();
+     $sendtomodel->update_customer($idnumber, $fname, $lname, $email,$niccode, $phoneNumber,$passwordof);
+
+  }	
+  
+     public function addCustomers() {
+
+
+        $code = $_GET['id'];
+        $fname = $_GET['fname'];
+        $lname = $_GET['lname'];
+        $nic = $_GET['ncode'];
+	 $pcode = $_GET['pcode'];
+        $email = $_GET['email'];
+        $password = $_GET['passwordofc'];
+
+
+
+        $sendtomodel = new ProfileManage_model();
+     $sendtomodel->add_customer($code, $fname, $lname, $nic, $pcode, $email, $password);
+
+  }	 
+  
+    
 }

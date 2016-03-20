@@ -81,7 +81,7 @@ angular.module('app.routes', [])
                         url: '/page25',
                         views: {
                             'tab13': {
-                                templateUrl: 'templates/ticketReservation.html',
+                                templateUrl: 'templates/findMyTrain.html',
                                 controller: 'findMyTrainCtrl'
                             }
                         }
@@ -93,7 +93,7 @@ angular.module('app.routes', [])
                         views: {
                             'tab13': {
                                 templateUrl: 'templates/seatReservations.html',
-                                controller: 'findMyTrainCtrl'
+                                controller: 'seatReservations'
                             }
                         }
                     })
@@ -132,6 +132,18 @@ angular.module('app.routes', [])
         }
       }
     })
+
+					  .state('tabsController.myTickets', {
+      url: '/page1',
+      views: {
+        'tab13': {
+          templateUrl: 'templates/myTickets.html',
+          controller: 'myTicketscnt'
+        }
+      }
+    })
+
+
 	
 	      .state('tabsController.PlacesOfTravelG', {
       url: '/page31',

@@ -1,7 +1,5 @@
-
- <br></br>
-
-  		<form class="form-horizontal">
+   <br> 
+<form class="form-horizontal">
     <fieldset>
         <legend>Search By Train Name</legend>
         <div class="form-group">
@@ -13,7 +11,7 @@
 </form>
     
     
-    <br><br>     </br> </br>
+   <br>
 			
 		<table class="table table-striped table-hover ">
         <col style="width:12%">		
@@ -46,32 +44,12 @@
 		
 		
 		
-		
-		</div>
-		
+	
 		
 		
 	<script type="text/javascript">
     $(document).ready(function () {
-		
-		
-		    $('#admin_list_manage').click(function (e2) {
-        e2.preventDefault();
-        $('#subloader03').empty();
-        $('#subloader03').load('profileManage/adminUsersEdit', function () {
-        });
-    });
-				    $('#adminuser').click(function (e2) {
-        e2.preventDefault();
-        $('#subloader03').empty();
-        $('#subloader03').load('profileManage/adminUsersAdd', function () {
-        });
-    });
-		
-		
-		
-		
-		
+
         $.getJSON('reservationManagement/select_seats', function (data) {
            
             var len = data.length;
@@ -91,7 +69,7 @@
                 $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].reservedSecond  + '</td>');
                 $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' +data[x].totalSecond  + '</td>');
                 
-                 $("." + x + "").append('<td><div class="icon-preview"><a href="' + data[x].tid + '" class="remove"> <i class="material-icons">mail_outline</i></a></div></td>');			
+                 $("." + x + "").append('<td><div class="icon-preview"><a href="' + data[x].tid + '" class="sendemailtonotify"> <i class="material-icons">mail_outline</i></a></div></td>');			
                                                                                                
 
 				$("." + x + "").append('</tr>');

@@ -1,3 +1,4 @@
+
 <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
     <div class="mdl-tabs__tab-bar">
         <a href="javascript:void(0)" id="greport" class="btn btn-raised btn-default">Generate Report</a>
@@ -12,8 +13,8 @@
 
     $('#greport').click(function (e2) {
         e2.preventDefault();
-        $('#subloader22').empty();
-        $('#subloader22').load('reservationManagement/index', function () {
+        $('#subloader2').empty();
+        $('#subloader2').load('reservationManagement/index', function () {
         });
     });
 </script>

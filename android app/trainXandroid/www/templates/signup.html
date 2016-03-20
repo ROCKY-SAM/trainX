@@ -1,24 +1,85 @@
-<ion-view title="<p>Signup</p>">
-    <ion-content overflow-scroll="true" padding="true" style="background: url(img/FYOW45gUTvyMbKEhQvry_1.jpg) no-repeat center;" scroll="false" class="has-header">
- <div  id="centered">       
-	   <form class="list">
-           
-            <ion-list>
-                <label class="item item-input">
-                    <span class="input-label">Name</span>
-                    <input type="text" placeholder="">
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">Username</span>
-                    <input type="text" placeholder="">
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">Password</span>
-                    <input type="text" placeholder="">
-                </label>
-            </ion-list>
-            <button class="button button-full button-calm">Sign up</button>
-        </form>
-		</div>
+<ion-view title="<center>Signup</center>">
+    <ion-content overflow-scroll="true" padding="true" style="background: url(img/FYOW45gUTvyMbKEhQvry_1.jpg) no-repeat center;" scroll="true" class="has-header">
+     
+
+		
+		
+		<form name="testForm" >
+	 <ion-list>
+	
+<div id="container" style="background-color: ;width:380px;margin:auto;">
+<div ng-controller="memebereditdetail">
+
+    <label class="item item-input">
+    <span class="input-label">First Name</span>
+    <input type="text" ng-model="fnameaccount" ng-change="changefname()" id="fCode" name="firstname" ng-required="true" />
+    </label>
+  <!--   <button class="button button-block  button-outline button-assertive" ng-show="testForm.firstname.$error.required"><i class="ion-information-circled"></i>&ensp;&ensp;Firstname is required</button>  -->
+	<button class="button button-block   button-assertive" ng-show="changefname()"><i class="ion-information-circled"></i>&ensp;&ensp;Firstname can only have letters</button>
+
+	
+    <label class="item item-input ">
+    <span class="input-label">Last Name</span>
+    <input type="text" ng-model="lnameaccount" ng-change="changelname()" id="lCode" name="lastname" ng-required="true" />
+ 
+    </label>  
+  <!--   <button class="button button-block button-assertive" ng-show="testForm.lastname.$error.required"><i class="ion-information-circled"></i>&ensp;&ensp;Lastname is required</button> -->
+	<button class="button button-block   button-assertive" ng-show="changelname()"><i class="ion-information-circled"></i>&ensp;&ensp;Lastname can only have letters</button> 
+ 
+
+        <label class="item item-input ">
+    <span class="input-label">NIC</span>
+    <input type="text" ng-model="nicaccount" ng-change="changenic()" id="ncode" name="nicc" ng-required="true">
+
+  </label> 
+<!--	<button class="button button-block   button-assertive" ng-show="testForm.nicc.$error.required"><i class="ion-information-circled"></i>&ensp;&ensp;NIC is required</button>   -->
+	<button class="button button-block   button-assertive" ng-show="changenic()"><i class="ion-information-circled"></i>&ensp;&ensp;NIC format is not correct</button> 
+ 
+   <label class="item item-input ">
+    <span class="input-label">Phone</span>
+    <input type="number"  ng-model="phoneaccount" ng-change="changephone()" id="pcode" name="phonee" ng-required="true" >
+
+  </label> 
+  <!--	<button class="button button-block   button-assertive" ng-show="testForm.phonee.$error.required"><i class="ion-information-circled"></i>&ensp;&ensp;Phone number is required</button>  -->
+	 <button class="button button-block   button-assertive" ng-show="changephone()"><i class="ion-information-circled"></i>&ensp;&ensp;Phone number is not in correct format</button>
+  
+   <label class="item item-input ">
+    <span class="input-label">Email</span>
+    <input type="email" ng-model="email.account" id="emails" name="emaill" ng-required="true" >
+
+	</label>
+ <!--	<button class="button button-block   button-assertive" ng-show="testForm.emaill.$error.required"><i class="ion-information-circled"></i>&ensp;&ensp;Email is required</button>  -->
+	<button class="button button-block   button-assertive" ng-show="testForm.emaill.$error.email"><i class="ion-information-circled"></i>&ensp;&ensp;Email is required</button> 
+  
+
+    <label class="item item-input ">
+    <span class="input-label">Password</span>
+    <input type="password" ng-model="npassword" ng-change="" id="newpasscode"/>
+    </label>  
+
+    <label class="item item-input ">
+    <span class="input-label">Confirm password</span>
+    <input type="password" ng-model="cnpassword" ng-change="newpasswordcheckq()" id="cnpasswordcode" />
+	
+    </label>  
+<button class="button button-block  button-assertive" ng-show="newpasswordcheckq()"><i class="ion-information-circled"></i>&ensp;&ensp;New password not match</button>
+
+
+ <button class="button button-full button-positive"  ng-click="submitform()">
+  Save
+</button>
+
+</div>
+</div>		
+ 
+
+
+
+
+ 
+</ion-list>
+	</form>
+ 
+	
     </ion-content>
 </ion-view>

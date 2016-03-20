@@ -1,14 +1,10 @@
 	    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 	      <div class="mdl-tabs__tab-bar">
 	          <a href="javascript:void(0)" id="admin_list_manage" class="btn btn-raised btn-default">Location List Manage</a>
-			  &nbsp;
-	          <a href="javascript:void(0)" id="adminuser" class="btn btn-raised btn-default">Add Locations to List</a>
+
 	      </div>
 	    </div>
 	
-		<div id="subloader03">
-		
-			</br></br>
 			
 			<form class="form-horizontal">
     <fieldset>
@@ -24,11 +20,11 @@
 </br>
 			
 		<table class="table table-striped table-hover ">
-        <col style="width:10%">		
-        <col style="width:15%">
-        <col style="width:15%">
-        <col style="width:20%">
-        <col style="width:20%">
+        <col style="width:0%">		
+        <col style="width:0%">
+        <col style="width:0%">
+        <col style="width:0%">
+
         <thead>
             <tr>
                 <th></th>			
@@ -45,8 +41,6 @@
 		
 		
 		
-		</div>
-		
 		
 		
 		<script type="text/javascript">
@@ -55,14 +49,14 @@
 		
 		    $('#admin_list_manage').click(function (e2) {
         e2.preventDefault();
-        $('#subloader03').empty();
-        $('#subloader03').load('travelGuide/adminLocationEdit', function () {
+        $('#subloader2').empty();
+        $('#subloader2').load('travelGuide/adminLocationEdit', function () {
         });
     });
 				    $('#adminuser').click(function (e2) {
         e2.preventDefault();
-        $('#subloader03').empty();
-        $('#subloader03').load('travelGuide/adminLocationsAdd', function () {
+        $('#subloader2').empty();
+        $('#subloader2').load('travelGuide/adminLocationsAdd', function () {
         });
     });
 		
@@ -80,9 +74,9 @@
 			    
 			   
                 $("tbody").append('<tr class="' + x + '" id="' + data[x].id + '">');
-                $("." + x + "").append('<td id="' + data[x].id + "-Photohoto" + '">' +'<img src="/trainX/views/profileManage/propic/'+data[x].Photo+'"  class="img-responsive img-rounded">'  + '</td>');				
+                $("." + x + "").append('<td id="' + data[x].id + "-Photohoto" + '">' +'<img src="/trainX/views/travelGuide/places/'+data[x].Photo+'"  class="img-responsive img-rounded">'  + '</td>');				
                 $("." + x + "").append('<td id="' + data[x].id + "-Locations" + '">' +data[x].Locations + '</td>');				
-                $("." + x + "").append('<td id="' + data[x].id + "-Description" + '">' + data[x].Description + '</td>');
+                $("." + x + "").append('<td style="width: 50px;" id="' + data[x].id + "-Description" + '">' + data[x].Description + '</td>');
                 $("." + x + "").append('<td id="' + data[x].id + "-nearestRS" + '">' + data[x].nearestRS + '</td>');
                 
 				$("." + x + "").append('</tr>');
@@ -121,3 +115,19 @@
 	
 	
 	</script>
+	
+	
+	<style>
+	table
+{
+    table-layout: fixed;
+    
+}
+
+td
+{
+   
+    overflow: hidden;
+}
+	
+	</style>

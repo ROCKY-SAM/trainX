@@ -1,34 +1,48 @@
-<ion-view title="TrainX Starter - Ticket Reservation">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+<ion-view title="Ticket Reservation">
+    <ion-content  scroll="true" padding="true" class="has-header">
         <form class="list">
             <label class="item item-select">
                 <span class="input-label">From</span>
-                <select>
-                    <option></option>
+                <select ng-model="selectedfromtrain">
+                    <option ng-repeat="rootz in rooting | orderBy:'station'" value="{{rootz.station}}~{{rootz.root}}">{{rootz.station}}</option>
                 </select>
+
             </label>
-            <label class="item item-select">
+			
+			<label class="item item-select">
                 <span class="input-label">To</span>
-                <select></select>
+                <select ng-model="selectedtotrain">
+				<option ng-repeat="rootz in rooting | orderBy:'station'" value="{{rootz.station}}~{{rootz.root}}">{{rootz.station}}</option>
+				</select>
             </label>
-            <ion-checkbox>With Return</ion-checkbox>
+           
             <label class="item item-input">
                 <span class="input-label">Reserving Date</span>
-                <input type="date" placeholder="">
+                <input type="date" placeholder="" id="finddatavalue">
             </label>
-            <label class="item item-input">
-                <span class="input-label">Return Date</span>
-                <input type="date" placeholder="">
-            </label>
-            <label class="item item-select">
-                <span class="input-label">Class</span>
-                <select>
-                    <option></option>
-                    <option>1st Class</option>
-                    <option>2nd Class</option>
-                </select>
-            </label>
+
+
         </form>
-        <a href="#/page20/page55/page56" class="button button-positive button-block ">Find My Train</a>
+
+        <a href="" ng-click="getdetailvalue(selectedfromtrain,selectedtotrain)" class="button button-positive button-block " >Find My Train</a>
+		
+		  <div class="item item-divider" ng-show="showroute1">  {{code}}
+
+		  </div>
+		  
+				<ion-list ng-repeat="x in trains1" >
+
+  <ion-checkbox ng-model="x.selected" ng-click="train1select(x.tid,x.timeStarting,x.TimeEnding,x.tname)">{{x.tname}} <br>Start : {{x.timeStarting}} End : {{x.TimeEnding}}</ion-checkbox>
+
+</ion-list>
+ <!-- <div class="item item-divider" id="secondtrainroute" ng-show="showroute2"><center>{{code2}}<center></div>  -->
+
+  
+ <button class="button button-outline button-assertive button-full" id="secondtrainroute" ng-show="showroute2">
+  <center>{{code2}}<center>
+</button> 
+  
+  
+<a href="#/page20/page30" ng-click="getdetailvalue(selectedfromtrain,selectedtotrain)" class="button button-positive button-block " ng-show="showroute3">Book my seat</a>
     </ion-content>
 </ion-view>

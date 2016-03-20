@@ -1,6 +1,6 @@
 <?php
 
-
+	header('Access-Control-Allow-Origin: *');
 $hostname = "localhost";
 $username = "root";
 $password = "";
@@ -19,7 +19,7 @@ else
 $connection = mysql_connect("localhost", "root", "");
 $db = mysql_select_db("trainx", $connection);
  $markers = array();
-	$query ="SELECT * FROM users ";
+	$query ="SELECT * FROM customers ";
 
 $result = mysql_query($query);
 if (mysql_num_rows($result) > 0) {
@@ -28,9 +28,12 @@ if (mysql_num_rows($result) > 0) {
       //  echo $row["id"]."-";
 	  
 	   $markers[] = array(
-      'id' => $row['id'],
-      'login' => $row['login'],
-      'password' => $row['password'],
+      'id' => $row['customerId'],
+      'login' => $row['email'],
+      'password' => $row['Password'],
+      'phoneNumber' => $row['phoneNumber'],
+      'customerfname' => $row['customerfname'],
+      'customerlname' => $row['customerlname'],
 
     );
 }

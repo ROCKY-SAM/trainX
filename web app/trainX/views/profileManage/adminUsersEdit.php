@@ -1,3 +1,11 @@
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
+        <a href="javascript:void(0)" id="admin_list_manage" class="btn btn-raised btn-default">Admin List Manage</a>
+        &nbsp;
+        <a href="javascript:void(0)" id="adminuser" class="btn btn-raised btn-default">Admin Users Add</a>
+    </div>
+</div>
+
 			</br></br>
 			
 			<form class="form-horizontal">
@@ -230,6 +238,8 @@
      $('#myModala').appendTo("body").modal();               
                 }, 250);
                 e.preventDefault();
+				        
+		    
             });
 			
 			
@@ -282,11 +292,11 @@
          url: form.attr('action'),
           data: form.serialize(),
          success: function (data) {
-              $('#myModala').appendTo("body").hide('modal');
-			   $('#myModala').modal('hide');
-              $('#myModala').appendTo("body").hide('modal');
-         $('#subloader03').empty();
-           $('#subloader03').load('profileManage/adminUsersEdit').hide().fadeIn('slow');
+                $('#myModala').modal('hide');
+			
+             
+         $('#subloader2').empty();
+           $('#subloader2').load('profileManage/adminUsersEdit').hide().fadeIn('slow');
        }
      });
                                 

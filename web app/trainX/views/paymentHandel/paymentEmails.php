@@ -13,15 +13,15 @@
 
     $('#alertoffers').click(function (e2) {
         e2.preventDefault();
-        $('#subloader22').empty();
-        $('#subloader22').load('paymentHandel/alertoffers', function () {
+        $('#subloader2').empty();
+        $('#subloader2').load('paymentHandel/alertoffers', function () {
         });
     });
     
     $('#customEmail').click(function (e2) {
         e2.preventDefault();
-        $('#subloader22').empty();
-        $('#subloader22').load('paymentHandel/customEmail', function () {
+        $('#subloader2').empty();
+        $('#subloader2').load('paymentHandel/customEmail', function () {
         });
     });
 </script>

@@ -9,12 +9,29 @@
         <form class="form-horizontal" method="POST" action="locationFinder/insert_station_root" enctype="multipart/form-data"  id="insert_station_root" onsubmit="return submitForm();">
             <fieldset>
                 <legend>Add New Station Root</legend> <!--font style-->
+                 <div class="form-group">
 
-                <div class="form-group">
-                    <label for="rootcode" class="col-lg-2 control-label">Root Code</label>
-                    <div class="col-lg-5">
-                        <input type="text" class="form-control" name="rootcode" id="rootcode" placeholder="Root Id" >
+                    <div class="col-md-2 control-label">
+                        <label for="station">Root Code </label>
                     </div>
+
+                  <div class="col-md-5" id="rootcode">
+                        <select required class="form-control" id="rootcode" name="rootcode" >
+
+                            <option value="">Choose here</option>
+                            <option value="Main Line" >Main Line</option>
+                            <option value="Costal Line " >Costal Line</option>
+                            <option value="Kalani Vellay Line">Kalani Vellay Line</option>
+                            <option value="Up Country Line">Up Country Line</option>
+                            <option value="Matale Line">Matale Line</option>
+                            <option value="Batticacoloa Line">Batticacoloa Line</option>
+                            <option value="Trinco Line">Trinco Line</option>
+                            <option value="Mannar Line">Mannar Line</option>
+                            <option value="Puttalam Line">Puttalam Line</option>
+                            
+                            
+                        </select>
+                  </div>
                 </div>
 
                 <!--names -->
@@ -25,7 +42,7 @@
                     </div>
 
                     <div class="col-lg-5">
-                        <input type="text" class="form-control" name="station" placeholder="" 
+                        <input type="text" class="form-control" name="station" placeholder="" required="" 
                          />
                     </div>
               
@@ -39,7 +56,7 @@
 
                     <div class="col-lg-5">
                         <input type="text" class="form-control" name="latitude" placeholder="" 
-                               />
+                               pattern="[0-9\.]{0,10}" title="Enter numbers only" required=""/>
                     </div>
 
                 </div>
@@ -56,7 +73,7 @@
 
                     <div class="col-lg-5">
                         <input type="text" class="form-control" name="longitude" placeholder="" 
-                               />
+                               pattern="[0-9\.]{0,10}" title="Enter numbers only"  required="" />
                     </div>
 					
 								  </div>
@@ -69,7 +86,7 @@
                     </div>
 
                     <div class="col-lg-5">
-                        <input type="text" class="form-control" name="point" placeholder=""   </div>
+                        <input type="text" class="form-control" name="point" placeholder="" pattern="[0-9]{0,10}" title="Enter numbers only" required=""  />
 .					
                 </div>
                 </div>

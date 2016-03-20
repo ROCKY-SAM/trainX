@@ -1,277 +1,168 @@
-<html>    
-<br><br><br>
-<fieldset>
-     
-        <div class="form-group">
-            <div class="col-lg-5">
-                <input type="text" class="form-control" id="searchInput" placeholder="Search">
-            </div>
-        </div>
-    </fieldset>
-<br><br>
-    <table class="table table-striped table-hover ">
-        <col style="width:10%">		
-        <col style="width:15%">
-        <col style="width:15%">
-        <col style="width:15%">
-        <col style="width:15%">
-        <col style="width:20%">
-        <col style="width:15% ">
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+    <div class="mdl-tabs__tab-bar">
        
-        <thead>
-            <tr>			
+        <a href="javascript:void(0)" id="alertoffers" class="btn btn-raised btn-default">Alert Offers</a>
+        <a href="javascript:void(0)" id="customEmail" class="btn btn-raised btn-default">Custom Emails</a>
 
-                <th>Payment ID</th>
-                <th>Customer Name</th>
-                <th>Reserved Train</th>
-                <th>Depature Time</th>
-                <th>Phone Number</th>
-                <th>Customer Email</th>
-                <th>Send Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($Transactions as $transaction) : ?>						
-                <tr>
-                    <td><?php echo ($transaction->paymentID); ?></td>
-                    <td><?php echo ($transaction->cusName); ?></td>
-                    <td><?php echo ($transaction->reservedTrain); ?></td>
-                    <td><?php echo ($transaction->customerEmail); ?></td>
-                    <td>
-                        <a id="alert_Cartrans" onclick="SendNormalAlert('<?php echo ($transaction->id); ?>', '<?php echo ($transaction->cname); ?>', '<?php echo ($transaction->email); ?>', '<?php echo ($transaction->contact); ?>')"> <i class="mdi-communication-textsms"></i></a>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+    </div>
+</div>
 
-</html>
+<br><br>     </br> </br>
+<table class="table table-striped table-hover ">
+    <col style="width:15%">		
+    <col style="width:20%">
+    <col style="width:20%">
+    <col style="width:30%">
+    <col style="width:50%">
 
-<!--
-    <form class="form-horizontal" method="POST" id="sendingemails" action="paymentHandel/sendEmails">
-        <fieldset>
 
-            <div class="form-group">
-                <label for="inputEmail" class="col-md-2 control-label">Email</label>
 
-                <div class="col-md-10">
-                    <input type="email" class="form-control" name="inputEmaill" id="inputEmaill" placeholder="Email">
-                </div>
+    <thead>
+        <tr>			
+
+            <th>Payment ID</th>
+            <th>Customer Name</th>
+            <th>Phone Number</th>
+            <th>Customer Email</th>
+            <th>Send Email</th>
+
+
+        </tr>
+    </thead>
+    <tbody id="dbody"></tbody>
+</table>
+
+
+
+<div class="modal fade" id="myModal06" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel"><legend>Custom Alerts</legend></h4>
+
             </div>
 
-            <div class="form-group">
-                <label for="inputSubject" class="col-md-2 control-label">Subject</label>
+            <br> 
+            <form class="form-horizontal" id="emailcustomers" action="paymentHandel/emailpayments" method="get" >
+                <div class="modal-body">
 
-                <div class="col-md-10">
-                    <input type="text" class="form-control" name="inputSubjectl" id="inputSubjectl" placeholder="Subject">
+                    <fieldset>
+
+                        <div class="form-group">
+                            <label for="managercode" class="col-lg-4 control-label">Customer Email</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" name="customerEmail" id="customerEmail"  readonly/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="managercode" class="col-lg-4 control-label">Subject</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" name="subject" id="subject" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="managercode" class="col-lg-4 control-label">Message</label>
+                            <div class="col-lg-8">
+                                <input type="text" class="form-control" name="messagebody" id="messagebody" />
+                            </div>
+                        </div>
+                        <br>
+
+
+
+                        <div  id="kk">
+
+                        </div>   </fieldset>
+
                 </div>
-            </div>
-
-
-            <div class="form-group">
-                <label for="textArea" class="col-md-2 control-label">Content</label>
-
-                <div class="col-md-10">
-                    <textarea class="form-control" rows="3" id="bodyl" name="bodyl"></textarea>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" id="email_sup" class="btn btn-primary">Send Email</button>
 
                 </div>
-            </div>
-
-
-            <div class="form-group">
-                <div class="col-md-10 col-md-offset-2">
-
-                    <button type="submit" class="btn btn-raised btn-primary">Submit</button>
-                    <button type="button" class="btn btn-raised btn-warning">Cancel</button>
-                </div>
-            </div>
-        </fieldset>
-    </form>-->
-
-<!--   
-
-        //validating input email
-        //if(isset($_POST['inputEmail'], $_POST['inputSubject'],$_POST['content'])){
-        //   
-        //    if(empty($_POST['inputEmail'])){
-        //            $errors[]="Please Enter a valid email address";
-        //    }
-        //    else if(strlen($_POST['inputEmail'])>347){
-        //        $errors[]="Your email is tooo long";
-        //    }
-        //    else if(filter_var($_POST['inputEmail'],FILTER_VALIDATE_EMAIL)===FALSE){
-        //        $error[]="Please provide a valid email address";
-        //    }
-        //    else{
-        //        $email="<".htmlentities($_POST['inputEmail']).">";
-        //    }
-        // //validating subject
-        //    if(empty($_POST['inputSubject'])){
-        //            $errors[]="Please Enter Subject";
-        //    }
-        //    
-        //    //validating body email
-        //    if(empty($_POST['body'])){
-        //        $errors[]="Please Enter a message";
-        //    }
-        //    else{
-        //        $body=  htmlentities($_POST['body']);
-        //    }
-        //    
-        //   $retval = mail ($to,$subject,$message,$header);   
-        //    
-        //}
+            </form>
+        </div>
+    </div>
+</div>
 
 
 
 
+<script type="text/javascript">
 
 
-        //    $('#sendingemails').submit(function (e) {
-        //
-        //
-        //	e.preventDefault();
-        //         swal({   title: "Wait",   text: "processing to send e-mail",   timer: 4000,   showConfirmButton: false });
-        //        var form = $('#sendingemails');
-        //        $.ajax({
-        //            type: form.attr('method'),
-        //            url: form.attr('action'),
-        //            data: form.serialize(),
-        //            success: function (data) {
-        //			//	 swal("Email successfully!", "click okay to continue", "success");
-        //                console.log(data);
-        //             //   $('#subloader03').empty();
-        //              //  $('#subloader03').load('paymentHandle/sendEmails').hide().fadeIn('slow');
-        //            }
-        //        });
-        //	
-        //	
-        //    });
+    $(document).ready(function () {
+        $.getJSON('paymentHandel/view_payments', function (data) {
 
-
-
-
-
-
-//        $('#sendingemails').submit(function (e) {
-//
-//
-//            e.preventDefault();
-//            swal({title: "Wait", text: "processing to send e-mail", timer: 4000, showConfirmButton: false});
-//            var form = $('#sendingemails');
-//            $.ajax({
-//                type: form.attr('method'),
-//                url: form.attr('action'),
-//                data: form.serialize(),
-//                success: function (data) {
-//                    swal("Email successfully!", "click okay to continue", "success");
-//                    console.log(data);
-//                    //  $('#subloader03').empty();
-//                    //  $('#subloader03').load('profileManage/adminUsersAdd').hide().fadeIn('slow');
-//                }
-//            });
-//
-//
-//        });-->
-        <script type="text/javascript"> 
-            
-             function SendNormalAlert(paymentID, cusName, reservedTrain, customerEmail) {
-        swal({
-            title: "Are you sure?",
-            text: "You are about to send a confirmation Email to client for collect the vehicle!!",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonClass: "btn-danger",
-            confirmButtonText: "Yes, Send Alert!",
-            cancelButtonText: "No, Cancel!",
-            closeOnConfirm: false,
-            closeOnCancel: false
-        },
-        function (isConfirm) {
-            if (isConfirm) {
-                swal("Message Sent!", "Your Confirmation Alert has been sent.", "success");
-
-                $.post('carwash/UpdateNonRegStatus', {id: paymentID, user: cusName, contact: reservedTrain, email: customerEmail}, function (data) {
-                    console.log(data);
-
-                });
-                window.setTimeout(function () {
-                    $('#subloader2').empty();
-                    $('#subloader2').load('/IOC/carwash/NormalAlert', function () {
-                        $('#subloader2').hide();
-                        $('#subloader2').fadeIn('fast');
-                        window.setTimeout(function () {
-                            showAlert();
-                        }, 3000);
-                    });
-                }, 3000);
-            } else {
-                swal("Cancelled", "Your Email was not sent :)", "error");
-            }
-        });
-    }
-         $(document).ready(function () {
-        
-         $.getJSON('paymentHandel/view_Report_detailed', function (data) {
-             
             var len = data.length;
 
             for (x = 0; x < len; x++) {
+                $("tbody").append('<tr class="' + x + '" id="' + data[x].trainID + '">');
+                //$("." + x + "").append('<td id="' + data[x].id + "-image" + '">' +'<img src="/trainX/views/profileManage/propic/'+data[x].image+'"  class="img-responsive img-rounded">'  + '</td>');				
+                $("." + x + "").append('<td id="' + data[x].trainID + "-paymentID" + '">' + data[x].paymentID + '</td>');
+                $("." + x + "").append('<td id="' + data[x].trainID + "-cusName" + '">' + data[x].cusName + '</td>');
+                //$("." + x + "").append('<td id="' + data[x].id + "-startLocation" + '">' + data[x].reservedTrain + '</td>');
+                //  $("." + x + "").append('<td id="' + data[x].id + "-endLocation" + '">' + data[x].Depature + '</td>');
+                $("." + x + "").append('<td id="' + data[x].trainID + "-TelephoneNumber" + '">' + data[x].TelephoneNumber + '</td>');
+                $("." + x + "").append('<td id="' + data[x].trainID + "-customerEmail" + '">' + data[x].customerEmail + '</td>');
 
 
-                $("tbody").append('<tr class="' + x + '" id="' + data[x].id + '">');
-                $("." + x + "").append('<td id="' + data[x].id + "-idNumber" + '">' + data[x].paymentID + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-role" + '">' + data[x].cusName + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-fnamelname" + '">' + data[x].reservedTrain + '</td>');
-                 $("." + x + "").append('<td id="' + data[x].id + "-fnamelname" + '">' + data[x].Depature + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-email" + '">' + data[x].TelephoneNumber + '</td>');
-                $("." + x + "").append('<td id="' + data[x].id + "-email" + '">' + data[x].customerEmail + '</td>');
-                $("." + x + "").append('<td><div class="icon-preview"><a href="' + data[x].tid + '" class="sendmail"> <i class="material-icons">mail_outline</i></a></div></td>');
+                $("." + x + "").append('<td><div class="icon-preview"><a href="' + data[x].trainID + '" class="sendemail"><i class="mdi-content-mail"></i></a></div></td>');
+                //$("." + x + "").append('<td><div class="icon-preview"><a href="' + data[x].tid + '" class="remove"><i class="material-icons">delete</i></a></div></td>');
+
+                $("." + x + "").append('<td id="' + "-employee" + '">' + '</td>');
+                $("." + x + "").append('<td class="hide" id="' + data[x].trainID + "-trainID" + '">' + x + '</td>');
+
                 $("." + x + "").append('</tr>');
             }
-        });
-        });
-        
-        
-        
-            $("#searchInput").keyup(function () {
-        //split the current value of searchInput
-        var data = this.value.split(" ");
-        //create a jquery object of the rows
-        var jo = $("#dbody").find("tr");
-        if (this.value == "") {
-            jo.show();
-            return;
-        }
-        //hide all the rows
-        jo.hide();
 
-        //Recusively filter the jquery object to get results.
-        jo.filter(function () {
-            var $t = $(this);
-            for (var d = 0; d < data.length; ++d) {
-                if ($t.is(":contains('" + data[d] + "')")) {
-                    return true;
-                }
-            }
-            return false;
-        })
-        //show the rows that match.
-        .show();
+
+
+
+            $('.sendemail').click(function (e) {
+
+                var id = $(this).attr('href');
+
+
+                setTimeout(function () {
+
+                    var mycode = $('#' + id + '-trainID').text();
+//assing values
+                    $('#customerEmail').val(data[mycode].customerEmail);
+
+                    $('#myModal06').appendTo("body").modal('show');
+
+                }, 250);
+                e.preventDefault();
+            });
+
+            $('#email_sup').click(function (e) {
+
+
+                e.preventDefault();
+
+
+                swal({title: "Wait", text: "processing to send e-mail", timer: 4000, showConfirmButton: false});
+                var form = $('#email_form');
+                $.ajax({
+                    type: form.attr('method'),
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    success: function (data) {
+                        swal("Email successfully!", "click okay to continue", "success");
+                        $('#myModal06').appendTo("body").modal('hide');
+                        $('#subloader2').empty();
+                        $('#subloader2').load('paymentHandel/emailpayments').hide().fadeIn('slow');
+                    }
+                });
+            });
+
+
+        });
     });
-    
-    
-    $('.sendmail').click(function (e2) {
-        e2.preventDefault();
-        $('#subloader22').empty();
-        $('#subloader22').load('paymentHandel/customEmails', function () {
-        });
-    });
-    
-    </script>
 
 
-
-
-
-
+</script>

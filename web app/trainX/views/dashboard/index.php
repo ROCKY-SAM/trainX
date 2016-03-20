@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <title> TrainXLife </title>
+        <link rel="icon" href="<?php URL ?>views/dashborad/train.png" type="image/png">
+
+        <!--Map developer link start -->
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true&libraries=places"></script>
+        <script type="text/javascript" src="<?php URL ?>views/locationFinder/gmaps/gmaps.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php URL ?>views/locationFinder/gmaps/css/examples.css" />
 
 
 
@@ -30,11 +38,13 @@
         <link href="/trainX/public/css/docs.css" rel="stylesheet">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
         <script src="/trainX/public/js/sweetalert.min.js"></script>
         <link rel="stylesheet" type="text/css" href="/trainX/public/css/sweetalert.css">
 
+<!-- include jQuery -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
     </head>
 
@@ -99,11 +109,11 @@
                                 setInterval(GetClock, 1000);
                             }
                         </script>
-						
-						<a class="mdl-navigation__link" href="javascript:void(0)" id="message_page1"><i class="mdl-color-text--blue-grey-50 material-icons" role="presentation">forum</i><span class="badge"><li id="newmessagechatnumber"></li></span></a>
-						
-						
-						
+
+                        <a class="mdl-navigation__link" href="javascript:void(0)" id="message_page1"><i class="mdl-color-text--blue-grey-50 material-icons" role="presentation">forum</i><span class="badge"><li id="newmessagechatnumber"></li></span></a>
+
+
+
                         <div id="clockbox" class="mdl-navigation__link"></div>
 
                     </div>
@@ -374,7 +384,7 @@
         <script type="text/javascript">
 
             $(document).ready(function () {
-window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber'); ?>');
+                window.localStorage.setItem("logginuserid", '<?php echo Session::get('idNumber'); ?>');
                 var dbpassword;
                 var userpassword;
                 $.getJSON('profileManage/users_list', function (data) {
@@ -448,31 +458,30 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                 } else if (test == "locationfind") {
                     $('#usertype').append('Location Idintification');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="clientInform"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">call</i>Client Inform</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="location_identification"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Location Idintification</a>');                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Travel Guide</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="location_identification"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Root Information</a>');
                 } else if (test == "travelGuide") {
                     $('#usertype').append('Travel Guide');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="Locations"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Locations</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="travel"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Travel Guide</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Reservation</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="Locations"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">add_location</i>Dispaly Locations</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="adminLocationsAdd"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Add Locations</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="LocationList"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Location List</a>');
+                    //$('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Payment Handling</a>');
                 } else if (test == "reservation") {
-                $('#usertype').append('Reservation');
+                    $('#usertype').append('Reservation');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="schedule"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">assignment</i>Train Schedules</a>');
+                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="stations"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">image</i>Stations</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="seatReservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">people_outline</i>Seat Reservation</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="prices"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Prices view</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reportreserve"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">view_week</i>Generate Reports</a>');
 //                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="view"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>View Train Details</a>');
-                   
 
 
-                }  else if (test == "payment") {
+
+                } else if (test == "payment") {
                     $('#usertype').append('Payment Manager');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="notification_payment"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">mail_outline</i>Email Notification</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment_sms"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>SMS Notification</a>');
+                    // $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="payment_sms"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>SMS Notification</a>');
                     $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="detailed_report"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">directions</i>Payment Reports</a>');
-                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Revenue</a>');
+                    // $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="reservation"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">receipt</i>Revenue</a>');
 //                    $('#loadOnlyPart').append('<a class="mdl-navigation__link" href="javascript:void(0)" id="account"><i class="mdl-color-text--blue-grey-100 material-icons" role="presentation">payment</i>Accounts</a>');
                 }
 
@@ -560,9 +569,21 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     $('#subloader2').load('locationFinder/location_identi', function () {
                     });
                 });
+                $('#train_position').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('locationFinder/train_position', function () {
+                    });
+                });
+                $('#report').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('locationFinder/report', function () {
+                    });
+                });
                 //Location Finder end
 
-                //travel guide start
+
 
 //reservation start
 
@@ -601,10 +622,18 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     });
                 });
                 
+                 $('#stations').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('reservationManagement/stationsc', function () {
+                    });
+                });
+                
                 
 
 
 //reservation ends
+                //travel guide start
 
                 $('#Locations').click(function (e2) {
                     e2.preventDefault();
@@ -613,8 +642,19 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
                     });
                 });
 
+                $('#adminLocationsAdd').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('travelGuide/adminLocationsAdd', function () {
+                    });
+                });
 
-
+                $('#LocationList').click(function (e2) {
+                    e2.preventDefault();
+                    $('#subloader2').empty();
+                    $('#subloader2').load('travelGuide/LocationList', function () {
+                    });
+                });
 //travel guide end
 
                 $('#reservation').click(function (e2) {
@@ -736,43 +776,45 @@ window.localStorage.setItem("logginuserid",'<?php echo Session::get('idNumber');
 
                 });
 
-				
-				
-					
-	var value1=null;
-	          $.getJSON('profileManage/message_list', function (data) {      value1 = data.length;	});
-
-	var value2=1;
-	
-	timeout();
-           
-	
-	//------------------------------------------		
 
 
-	function timeout() {
-        setTimeout(function () {
 
-          $.getJSON('profileManage/message_list', function (data) {
+                var value1 = null;
+                $.getJSON('profileManage/message_list', function (data) {
+                    value1 = data.length;
+                });
+
+                var value2 = 1;
+
+                timeout();
 
 
-               var len = data.length;
-              if (value1 < len) {
-					value2=parseInt(len - value1);
-					document.getElementById('newmessagechatnumber').innerHTML=value2;
-				}
+                //------------------------------------------		
 
-    });
+
+                function timeout() {
+                    setTimeout(function () {
+
+                        $.getJSON('profileManage/message_list', function (data) {
+
+
+                            var len = data.length;
+                            if (value1 < len) {
+                                value2 = parseInt(len - value1);
+                                document.getElementById('newmessagechatnumber').innerHTML = value2;
+                            }
+
+                        });
 
 
 
 // create a recursive loop.
-            timeout();
-        }, 2000);
-    }
-			//--
-			
-			 });
+                        timeout();
+                    }, 2000);
+                }
+                //--
+
+            });
         </script>
 
 
